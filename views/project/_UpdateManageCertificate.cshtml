@@ -1,0 +1,101 @@
+﻿@model OneCRS.MVC.Models.Sales.Project
+<legend style=" margin-left:20px;background-color:#1f497d; padding-left:30px; padding-top:2px; padding-right:50px; padding-bottom:2px; color:white; border-radius:15px; border:3px solid #eeece1; font-size:18px; "><b>Manage Certificate</b></legend>
+<br />
+<input type="hidden" id="HideCertStructure" value="@Model.CertStructure" />
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="CertStructure">Certificate Structure</label>
+            <select id="CertStructure" name="CertStructure" class="form-control form-white" data-style="white" data-search="true" required />
+        </div>
+        <div class="form-group" style="visibility:hidden">
+            <label for="sss">SSS</label>
+            <select id="sssss" name="sss" class="form-control form-white" data-style="white" data-search="true" required />
+        </div>
+        <div class="form-group" id="rdoSelect">
+            <label for="1">Roaming Challenge & Response Question List</label><br />
+            <input type="button" class="btn btn-success btn-embossed" value="Click here for Challenge Response Settings" id="btnQuestion" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color:red; font-size:18px">*</span> Medium Type</label>
+            <div class="radio">
+                <label>
+                    @if (Model.C_MediumIsSoft == true)
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsSoft" id="cmediumsoft" data-checkbox="icheckbox_square-blue" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsSoft" id="cmediumsoft" data-checkbox="icheckbox_square-blue" />
+                    }
+                    @*@Html.CheckBoxFor(model => model.C_MediumIsSoft, new { @class = "icheckbox_square-blue" })*@
+                    @*<input type="checkbox" name="C_MediumIsSoft" id="cmediumsoft" data-checkbox="icheckbox_square-blue">*@
+                    Soft Certificate
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    @if (Model.C_MediumIsToken == true)
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsToken" id="cmediumtoken" data-checkbox="icheckbox_square-blue" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsToken" id="cmediumtoken" data-checkbox="icheckbox_square-blue" />
+                    }
+                    @*@Html.CheckBoxFor(model => model.C_MediumIsToken, new { @class = "icheckbox_square-blue" })*@
+                    @*<input type="checkbox" name="C_MediumIsToken" id="cmediumtoken" data-checkbox="icheckbox_square-blue">*@
+                    Token
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    @if (Model.C_MediumIsSmart == true)
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsSmart" id="cmediumsmart" data-checkbox="icheckbox_square-blue" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsSmart" id="cmediumsmart" data-checkbox="icheckbox_square-blue" />
+                    }
+                    @*@Html.CheckBoxFor(model => model.C_MediumIsSmart, new { @class = "icheckbox_square-blue" })*@
+                    @*<input type="checkbox" name="C_MediumIsSmart" id="cmediumsmart" data-checkbox="icheckbox_square-blue">*@
+                    Smart Card
+                </label>
+
+            </div>
+            <div class="radio">
+                <label>
+                    @if (Model.C_MediumIsRoaming == true)
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsRoaming" id="cmediumroaming" data-checkbox="icheckbox_square-blue" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsRoaming" id="cmediumroaming" data-checkbox="icheckbox_square-blue" />
+                    }
+                    @*@Html.CheckBoxFor(model => model.C_MediumIsRoaming, new { @class = "icheckbox_square-blue" })*@
+                    @*<input type="checkbox" name="C_MediumIsRoaming" id="cmediumroaming" data-checkbox="icheckbox_square-blue">*@
+                    Roaming
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    @if (Model.C_MediumIsServer == true)
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsServer" id="cmediumserver" data-checkbox="icheckbox_square-blue" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" value="" name="C_MediumIsServer" id="cmediumserver" data-checkbox="icheckbox_square-blue" />
+                    }
+                    @*@Html.CheckBoxFor(model => model.C_MediumIsRoaming, new { @class = "icheckbox_square-blue" })*@
+                    @*<input type="checkbox" name="C_MediumIsRoaming" id="cmediumroaming" data-checkbox="icheckbox_square-blue">*@
+                    Server
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

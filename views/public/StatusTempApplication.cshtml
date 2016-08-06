@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Application Status";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="~/assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="assets/global/css/style.css" rel="stylesheet">*@
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+    <!-- End Header View -->
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!--End Date Picker-->
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <!--<script src="~/https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+    <!--ViewScript -->
+}
+@using (Html.BeginForm("Index", "Register"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <img src="~/assets/registration/img/freeze/logo.png" style="width:250px" alt="" class="logo">
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br /><br /><br />
+    <div id="content">
+        <div class="form-container">
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading"><span>1CRS APPLICATION STATUS</span></h2>
+                    </div>
+                </div>
+
+                <div id="AccountDetailsPnl" class="wizard-step">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset class="input-block">
+                                <div style="width:100px;height:100px;text-align:center" align=center>
+                                    <img src="../Images/tick.gif" style="text-align:center;width:100%;height:100%" /><br />
+                                </div>
+                                @TempData["Status"]
+                            </fieldset>
+                            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

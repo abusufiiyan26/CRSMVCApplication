@@ -1,0 +1,163 @@
+﻿@model OneCRS.MVC.Models.ResetUsernameModel
+@{
+    //Layout = null;
+    ViewBag.Title = "SetResetUsername";
+}
+
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+            font-style: oblique;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+
+        .buttonSub {
+            position: absolute;
+            top: 50%;
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.png" />
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="~/assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="assets/global/css/style.css" rel="stylesheet">*@
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+    <!-- End Header View -->
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!--End Date Picker-->
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <!--ViewScript -->
+    @*<script src="/ViewsScript/Account/ForgetPassword.js"></script>*@
+    @if (ViewBag.Reset != null)
+    {
+        <script>
+            $(document).ready(function () {
+                alert('@ViewBag.Reset');
+                window.location.href = '@Url.Action("Index", "Home")';
+            });
+        </script>
+    }
+
+}
+@using (Html.BeginForm("ResetUsername", "ForgetUsername"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container" style="margin-top:10px;margin-bottom:1px">
+                <div class="navbar-header">
+                    <a href="/home">
+                        <img src="~/assets/registration/img/freeze/logo.png" style="width:250px" alt="" class="logo">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="/">HOME</a>
+                        </li>
+                        <li>
+                            <a href="/ForgetUsername">FORGET USERNAME</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br /><br /><br />
+    <div id="content">
+        <div class="form-container">
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading">1CRS<span>RESET USERNAME</span></h2>
+                    </div>
+                </div>
+                <div id="PersonalDetailsPnl" class="wizard-step">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-header">
+                                <div class="form-title form-icon title-icon-lock">
+                                    <b>Reset Username</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="divResetPassword">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset class="">
+                                @Html.LabelFor(Re => Re.NewUsername)
+                                @Html.TextBoxFor(Re => Re.NewUsername, new { @class = "form-control form-white" })
+                                @Html.ValidationMessageFor(Re => Re.NewUsername, "", new { @class = "text-danger" })
+                                <br />
+                                <br />
+                                @Html.LabelFor(Re => Re.NewPassword)
+                                @Html.PasswordFor(Re => Re.NewPassword, new { @class = "form-control form-white" })
+                                @Html.ValidationMessageFor(Re => Re.NewPassword, "", new { @class = "text-danger" })
+                                <br />
+                                <br />
+                                @Html.LabelFor(Re => Re.ConfirmPassword)
+                                @Html.PasswordFor(Re => Re.ConfirmPassword, new { @class = "form-control form-white" })
+                                @Html.ValidationMessageFor(Re => Re.ConfirmPassword, "", new { @class = "text-danger" })
+                                <br />
+                                <p style="color:red;text-align:center;"> @ViewBag.Error </p>
+                                <br />
+                            </fieldset>
+                            <div class="wrapper">
+                                <input class="button button-control" type="submit" value="Submit" style="width:100px;height:30px" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-nav">
+                        <div>
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Request Token Unblock";
+}
+
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/grid.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/fontello.css" />
+    <link rel="shortcut icon" href="~/favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    @*<link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">*@
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <!-- DOCUMENT CSS-->
+    <link href="../assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet">
+
+    <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="../assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    <link href="~/assets/global/css/style.css" rel="stylesheet" />
+    <link href="~/assets/global/css/theme.css" rel="stylesheet" />
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../Content/toastr.min.css" rel="stylesheet" />
+
+    <!-- End Header View -->
+    <!--JQGRID TABLE CSS -->
+    <link href="../Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <link href="../Content/gridmaster.css" rel="stylesheet" />
+    <link href="../Content/blue-jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <!-- FONT AWESOME-->
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+    <link href="../Content/font-awesome-animation.min.css" rel="stylesheet" />
+
+    <!-- JTABLE TABLE CSS -->
+    <!-- Include one of jTable styles. -->
+    <link href="~/Scripts/jtable/themes/lightcolor/blue/jtable.min.css" rel="stylesheet" type="text/css" />
+}
+
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container" style="margin-top:10px;margin-bottom:1px">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="~/home">
+                    <img src="~/assets/registration/img/freeze/logo.png" style="width:250px" alt="" class="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+        </div>
+    </nav>
+</header>
+<br /><br /><br /><br /><br />
+<div class="form-container">
+    <div id="RevokeDetailsPnl" style="width:900px;text-align:center" class="wizard-step">
+        @Html.Partial("~/Views/Public/_PinTokenUnblock.cshtml")
+        <table id="unblockPublicTbl" style="cursor:pointer"></table>
+        <div id="unblockPublicFooter"></div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/registration/js/modernizr.custom.32033.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!-- Bootstrap-->
+    <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+
+    <script src="~/Scripts/toastr.min.js"></script>
+
+    <!-- JQRID TABLE-->
+    <script src="../Scripts/jquery.jqGrid.min.js"></script>
+    <script src="../Scripts/i18n/grid.locale-en.js"></script>
+
+    <!-- File UPLOAD-->
+    <script src="../assets/global/plugins/dropzone/dropzone.min.js"></script>
+
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <script src="~/Content/loader/loadingoverlay.min.js"></script>
+    <script src="../ViewsScript/Public/WizardRequestUnblockGrid.js"></script>
+}

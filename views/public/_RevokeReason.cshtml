@@ -1,0 +1,48 @@
+﻿
+<div class="col-md-14 portlets">
+    <table class="table table-bordered" style="width: 100%; color:black; font-size:13px; border-radius:5px; border: 2px solid #69A8F3; border-collapse: collapse;">
+        <!-- PERSONAL DETAILS MODAL INFO-->
+        <tr>
+            <td align="center" colspan="4" class="TD" style="background-color: #C1DBFA; width: 15%; border: thin solid #69A8F3; ">REVOKE REASON</td>
+        </tr>
+        <tr>
+            <td class="TD" style="background-color: #ebf6f5; width: 15%; height:10%; border: thin solid #69A8F3">
+                Reason(s):
+            </td>
+            <td colspan="3" style="border: thin solid #69A8F3">
+                <div>PLEASE TICK WHERE APPLICABLE</div><br />
+                <table>
+                    @foreach (var item in Model.product)
+                    {
+                        <tr>
+                            <td>
+                                <input style="cursor:pointer" type="checkbox" name="V1Reason" id="V1Reason" value="@item.Id1" />  @item.Name1 &nbsp;&nbsp;&nbsp;&nbsp;
+                            </td>
+                            <td>
+                                <input style="cursor:pointer" type="checkbox" name="V2Reason" id="V2Reason" value="@item.Id2" />  @item.Name2
+                            </td>
+                        </tr>
+                    }
+                    <tr>
+                        <td>
+                            <input style="cursor:pointer" type="checkbox" id="VOthers" value="50" />  Others (Please specify)
+                        </td>
+                        <td>
+                            <input type="text" style="width:300px" id="revothers" name="revothers" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                Authorization Letter
+            </td>
+            <td colspan="3" style="border: thin solid #69A8F3">
+                <div class="col-sm-8">
+                    <input type="file" class="form-control form-white" id="revokeFile" name="revokeFile">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

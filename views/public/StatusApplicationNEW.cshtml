@@ -1,0 +1,207 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="not-ie no-js" lang="en">
+<head>
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,300italic,400,500,700%7cCourgette%7cRaleway:400,700,500%7cCourgette%7cLato:700' rel='stylesheet' type='text/css'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Certificate Request Application Status</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/grid.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/fontello.css" />
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+
+    <!-- FONT AWESOME-->
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+    <link href="../Content/font-awesome-animation.min.css" rel="stylesheet" />
+    <link href="~/assets/global/css/icons/font-awesome/font-awesome.css" rel="stylesheet">
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+
+    <link href="~/assets/validationEngine/validationEngine.jquery.css" rel="stylesheet">
+    <style>
+        .my-error-class {
+            font-size: 12px;
+            font-family: 'calibriregular', sans-serif;
+            color: red;
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css">
+</head>
+<body>
+    <div id="content">
+        <div class="form-container">
+            <br />
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading"><span>1CRS CERTIFICATE REQUEST APPLICATION STATUS</span></h2>
+                    </div>
+                </div>
+                <div class="row stage-container">
+                    <div id="stage1suc" class="stage tmm-success col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-user"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Personal Information</h3>
+                            <div class="stage-info">
+                                Enter your Personal Information
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stage2suc" class="stage tmm-success col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-lock"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Company Information</h3>
+                            <div class="stage-info">
+                                Enter your Company Information
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stage3suc" class="stage tmm-success col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-details"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Select Package</h3>
+                            <div class="stage-info">
+                                Select a Package Accordingly
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stage4suc" class="stage tmm-success col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-payment"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Document & Payment</h3>
+                            <div class="stage-info">
+                                Upload Document and Make Payment
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form id="adminForm" role="form">
+                    <div id="HideForm2" class="form-wizard">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-7">
+                                <input type="hidden" id="HideStatus" value="@TempData["Status"]" />
+                                <div id="htmlStatus" style="margin-bottom:10%" class="data-container">
+                                    <dl>
+                                        @*<dt>Status</dt>*@
+                                        <dd><span style="color: #00CC00; font-size:15px">@TempData["XStatus"]</span></dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Request Code</dt>
+                                        <dd>@TempData["XRequestCode"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Submit Date</dt>
+                                        <dd>@TempData["XDate"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Submit Time</dt>
+                                        <dd>@TempData["XTime"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Name</dt>
+                                        <dd>@TempData["XName"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>ID No</dt>
+                                        <dd>@TempData["XIDNo"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Company Name</dt>
+                                        <dd>@TempData["XCompanyName"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Project Name</dt>
+                                        <dd>@TempData["XProjectName"]</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>Package Name</dt>
+                                        <dd>@TempData["XPackageName"]</dd>
+                                    </dl>
+                                </div>
+                                <button class="button button-control" id="btnActived" type="button" @*onclick="myFunction()"*@><span>Print Form <b>Print</b></span></button>
+                            </div>
+                            <div id="editor"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/assets/global/plugins/gsap/main-gsap.min.js"></script> <!-- HTML Animations -->
+    <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/tmm_form_wizard_custom.js"></script>
+
+    <!-- Validation jquery-->
+    <script src="~/assets/global/js/jquery.validate.min.js"></script>
+    <script src="~/assets/global/js/additional-methods.min.js"></script>
+    <script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+    <script src="~/Content/loader/loadingoverlay.min.js"></script>
+    <script src="~/Scripts/bootbox.min.js"></script>
+
+    <!-- Validation Engine-->
+    <script src="~/assets/validationEngine/jquery.validationEngine.js"></script>
+    <script src="~/assets/validationEngine/jquery.validationEngine-en.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/registration/js/modernizr.custom.32033.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+
+    <!-- Handle Submit Button AJAX-->
+    <script src="~/assets/htmltopdf/base64.js"></script>
+    <script src="~/assets/htmltopdf/sprintf.js"></script>
+    <script src="~/assets/htmltopdf/jspdf.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script>
+        $(window).load(function () {
+            //if ($('#HideStatus').val() == "") {
+            //    bootbox.dialog({
+            //        message: "NO REQUEST FOUND",
+            //        title: "<i class='fa fa-info-circle'></i>" + "Info",
+            //        buttons: {
+            //            ok: {
+            //                label: "OK",
+            //                className: "btn-success",
+            //                callback: function () {
+            //                    window.location.replace("/Home/Admin");
+            //                }
+            //            }
+            //        }
+            //    });
+            //}
+        });
+
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            '#print': function (element, renderer) {
+                return true;
+            }
+        };
+
+        $('#btnActived').click(function () {
+            window.print();
+            //doc.fromHTML($('#print').html(), 15, 15, {
+            //    'width': 170,
+            //    'elementHandlers': specialElementHandlers
+            //});
+            //doc.save('save_status.pdf');
+        });
+
+    </script>
+</body>
+</html>

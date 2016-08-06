@@ -1,0 +1,171 @@
+﻿@model OneCRS.MVC.Models.Certificate.StatusModel
+@{
+    ViewBag.Title = "Application Status";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="~/assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="assets/global/css/style.css" rel="stylesheet">*@
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+    <!-- End Header View -->
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!--End Date Picker-->
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <!--ViewScript -->
+}
+@using (Html.BeginForm("Index", "Register"))
+{
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <img src="~/assets/registration/img/freeze/logo.png" style="width:250px" alt="" class="logo">
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br /><br /><br />
+    <div id="content">
+        <div class="form-container">
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading">1CRS<span> CERTIFICATE REQUEST APPLICATION STATUS</span></h2>
+                    </div>
+                </div><!--/ .row-->
+
+                <div id="AccountDetailsPnl" class="wizard-step">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-header">
+                                <div class="form-title form-icon title-icon-lock">
+                                    <b>Status</b> Information
+                                </div>
+                                <div class="steps">
+
+                                </div>
+                            </div><!--/ .form-header-->
+                        </div>
+                    </div><!--/ .row-->
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset class="input-block">
+                                @TempData["Status"]
+                            </fieldset>
+                            <fieldset id="hideStatus">
+                                <table class="table table-bordered" style="width: 100%; border: 1px solid #69A8F3; border-collapse: collapse; line-height: 1.1em; color:black;font-size:11px">
+                                    <tr>
+                                        <td align="center" colspan="4" class="TD" style="background-color: #C1DBFA; width: 15%; border: thin solid #69A8F3; ">CERTIFICATE STATUS</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Name
+                                        </td>
+                                        <td colspan="3" style="border: thin solid #69A8F3">
+                                            @TempData["Name"]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Company
+                                        </td>
+                                        <td colspan="3" style="border: thin solid #69A8F3">
+                                            @TempData["Company"]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Package
+                                        </td>
+                                        <td colspan="3" style="border: thin solid #69A8F3">
+                                            @TempData["PackageName"]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Media
+                                        </td>
+                                        <td colspan="3" style="border: thin solid #69A8F3">
+                                            @TempData["MediaName"]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Project Name
+                                        </td>
+                                        <td style="border: thin solid #69A8F3">
+                                            @TempData["ProjectName"]
+                                        </td>
+                                        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3">
+                                            Certificate Validity
+                                        </td>
+                                        <td style="border: thin solid #69A8F3">
+                                            @TempData["Validity"]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </fieldset>
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<footer style="background-color:white;text-align:center">
+    <div class="container">
+        <div class="social">
+            @*<img src="~/assets/registration/img/freeze/LogoPOS.jpg" width="283" alt="" class="logo">*@
+        </div>
+        <div class="rights" style="margin-bottom:2px">
+            <p>Copyright &copy; 2016  Sdn Bhd. All right reserved</p>
+            <p>1CRS is best viewed on a screen with 1024 x 768 resolution or higher with Internet Explorer 10.0, Chrome, and Safari</p>
+        </div>
+    </div>
+</footer>

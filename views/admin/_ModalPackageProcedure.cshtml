@@ -1,0 +1,206 @@
+﻿
+<style>
+    .datagrid table {
+        border-collapse: collapse;
+        text-align: left;
+        width: 100%;
+    }
+
+    .datagrid {
+        font: normal 12px/150% Arial, Helvetica, sans-serif;
+        background: #fff;
+        overflow: hidden;
+        border: 1px solid #8C8C8C;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+        .datagrid table td, .datagrid table th {
+            padding: 3px 10px;
+        }
+
+        .datagrid table thead th {
+            background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D) );
+            background: -moz-linear-gradient( center top, #8C8C8C 5%, #7D7D7D 100% );
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
+            background-color: #8C8C8C;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: bold;
+            border-left: 1px solid #A3A3A3;
+        }
+
+            .datagrid table thead th:first-child {
+                border: none;
+            }
+
+        .datagrid table tbody td {
+            color: #7D7D7D;
+            border-left: 1px solid #DBDBDB;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .datagrid table tbody .alt td {
+            background: #EBEBEB;
+            color: #7D7D7D;
+        }
+
+        .datagrid table tbody td:first-child {
+            border-left: none;
+        }
+
+        .datagrid table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .datagrid table tfoot td div {
+            border-top: 1px solid #8C8C8C;
+            background: #EBEBEB;
+        }
+
+        .datagrid table tfoot td {
+            padding: 0;
+            font-size: 12px;
+        }
+
+            .datagrid table tfoot td div {
+                padding: 2px;
+            }
+
+            .datagrid table tfoot td ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+                text-align: right;
+            }
+
+        .datagrid table tfoot li {
+            display: inline;
+        }
+
+            .datagrid table tfoot li a {
+                text-decoration: none;
+                display: inline-block;
+                padding: 2px 8px;
+                margin: 1px;
+                color: #F5F5F5;
+                border: 1px solid #8C8C8C;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                border-radius: 3px;
+                background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8C8C8C), color-stop(1, #7D7D7D) );
+                background: -moz-linear-gradient( center top, #8C8C8C 5%, #7D7D7D 100% );
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8C8C8C', endColorstr='#7D7D7D');
+                background-color: #8C8C8C;
+            }
+
+        .datagrid table tfoot ul.active, .datagrid table tfoot ul a:hover {
+            text-decoration: none;
+            border-color: #7D7D7D;
+            color: #F5F5F5;
+            background: none;
+            background-color: #8C8C8C;
+        }
+
+    div.dhtmlx_window_active, div.dhx_modal_cover_dv {
+        position: fixed !important;
+    }
+</style>
+
+<div class="row" style="margin-left:3px;margin-right:3px">
+    <div class="datagrid">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DiBills Code</td>
+                    <td><div id="DibillsCodez"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>Project</td>
+                    <td><div id="Projectz"></div></td>
+                </tr>
+                <tr>
+                    <td>Media</td>
+                    <td><div id="Mediaz"></div></td>
+                </tr>
+                @*<tr class="alt">
+                    <td>Package Type</td>
+                    <td><div id="PackageTypez"></div></td>
+                </tr>*@
+                <tr class="alt">
+                    <td>Package Name</td>
+                    <td><div id="PackageNamez"></div></td>
+                </tr>
+                <tr>
+                    <td>Product</td>
+                    <td><div id="Productz"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>Validity</td>
+                    <td><div id="Validityz"></div></td>
+                </tr>
+                <tr>
+                    <td>Certificate Length</td>
+                    <td><div id="CertificateLengthz"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>Hardware</td>
+                    <td><div id="Hardwarez"></div></td>
+                </tr>
+                <tr>
+                    <td>Packaging</td>
+                    <td><div id="Packagingz"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>API</td>
+                    <td><div id="APIz"></div></td>
+                </tr>
+                <tr>
+                    <td>Guide</td>
+                    <td><div id="Guidez"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>Accessible By</td>
+                    <td><div id="AccessibleByz"></div></td>
+                </tr>
+                <tr>
+                    <td>Price (RM)</td>
+                    <td><div id="Pricez"></div></td>
+                </tr>
+                <tr class="alt">
+                    <td>GST</td>
+                    <td><div id="GSTz"></div></td>
+                </tr>
+                <tr>
+                    <td>Total Price</td>
+                    <td><div id="TotalPricez"></div></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+@*<div class="row" style="margin-left:3px;margin-right:3px">
+    <div class="form-group">
+        <label style="width:70%" class="control-label col-sm-2" for="ProcedureID">Procedure:</label>
+        <div class="col-sm-6">
+            <select style="width:90%" class="form-control form-white" id="ProcedureID" name="ProcedureID"></select>
+            <button type="button" style="margin-top:8px;margin-left:0px" class="btn btn-sm btn-icon btn-rounded btn-default" id="btnAddProcedure"><i class="fa fa-plus"></i></button>
+        </div>
+    </div>
+</div>*@
+<div class="form-group">
+    <label class="control-label col-sm-2" style="width:80px" for="ProcedureID">Procedure:</label>
+    <div class="col-sm-6">
+        <select style="width:80%" id="ProcedureID" class="form-control form-white" name="ProcedureID" data-search="true"></select>
+        <button type="button" style="margin-top:5px;margin-left:0px" class="btn btn-sm btn-icon btn-rounded btn-default" id="btnAddProcedure"><i class="fa fa-plus"></i></button>
+    </div>
+</div>

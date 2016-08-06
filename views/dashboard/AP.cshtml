@@ -1,0 +1,226 @@
+﻿@model OneCRS.MVC.Models.MenuModel
+@{
+    ViewBag.Title = "AP Dashboard";
+    Layout = "~/Views/Shared/_Menu.cshtml";
+}
+
+<section>
+    <div class="page-content">
+        <div class="header">
+            <h2><strong>Dashboard</strong> </h2>
+            <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="~/">1CRS</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </div>
+        </div>
+        <h4>WELCOME TO 1CRS</h4>
+
+        <div class="row">
+            <div class="col-lg-4 col-sm-6" style="margin-top:-15px;">
+                <div class="panel widget-member">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="~/assets/global/images/avatars/avatar1.png" alt="avatar 12" class="pull-left img-responsive">
+                        </div>
+                        <div class="col-xs-9">
+                            <h3 class="m-t-0 member-name"><strong>AUTHORIZE PERSONNEL (AP)</strong></h3>
+                            <p class="member-job"></p>
+                            <div class="row">
+                                <div class="col-xlg-6 col-lg-12 col-sm-6 align-right">
+                                    <p><i class="icon-folder c-gray-light p-r-10"></i>@Session["ICNo"]</p>
+                                    <p><i class="icon-envelope c-gray-light p-r-10"></i>@Session["Email"]</p>
+                                    <p><i class="icon-call-end c-gray-light p-r-10"></i>@Session["TelNo"]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            <button type="button" id="btnProfile" class="btn btn-primary">Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xlg-2 col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <div class="panel-group panel-accordion" id="accordion2">
+                    <div class="panel" style="border: #ddd; border-radius:4px">
+                        <div class="panel-heading">
+                            <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">
+                                    Guidelines
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">
+                                    FAQ
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel" style="background:#2bc0e4; background: -webkit-linear-gradient(to left, #2BC0E4, #EAECC6); background: linear-gradient(to left, #2BC0E4, #EAECC6)">
+                        <div class="panel-content widget-info">
+                            <div class="row">
+                                <div class="left">
+                                    <i class="fa fa-building bg-blue"></i>
+                                </div>
+                                <div class="right">
+                                    <p class="number countup" data-from="0" data-to="">16</p>
+                                    <p class="text" style="color:white"><b>Pending Payment</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            @*<div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel" style="background:#2bc0e4; background: -webkit-linear-gradient(to left, #2BC0E4, #EAECC6); background: linear-gradient(to left, #2BC0E4, #EAECC6)">
+                        <div class="panel-content widget-info">
+                            <div class="row">
+                                <div class="left">
+                                    <i class="fa fa-fire-extinguisher bg-red"></i>
+                                </div>
+                                <div class="right">
+                                    <p class="number countup" data-from="0" data-to="">22</p>
+                                    <p class="text" style="color:white;"><strong> Customer Status</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+
+            @*<div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="panel" style="background:#2bc0e4; background: -webkit-linear-gradient(to left, #2BC0E4, #EAECC6); background: linear-gradient(to left, #2BC0E4, #EAECC6)">
+                        <div class="panel-content widget-info">
+                            <div class="row">
+                                <div class="left">
+                                    <i class="icon-microphone bg-purple"></i>
+                                </div>
+                                <div class="right">
+                                    <p class="number countup" data-from="0" data-to="">6</p>
+                                    <p class="text" style="color:white;"><strong>Payment</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+
+        <div class="row">
+            <p style="margin-top: 20px"></p>
+            <h3 style="text-align:center"><i class="fa fa-info-circle" style="color:red"></i> 1CRS Notifications</h3>
+            <hr>
+            <p></p>
+            <div class="col-lg-6" id="box1">
+                <a href="../APVerified" id="ctl00_MainContent_A1">
+                    <div class="widget style1 lazur-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-envelope-o fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>New Certificate Request</span>
+                                <h2 class="font-bold">
+                                    @*<p class="number countup font-bold" data-from="" data-to=""></p>*@
+                                    @ViewBag.PendingNewCount
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-6" id="box2">
+                <a href="../APVerified" id="ctl00_MainContent_A2">
+                    <div class="widget style1 yellow-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-refresh fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Renewal Certificate Request</span>
+                                <h2 class="font-bold">
+                                    @*<p class="number countup font-bold" data-from="0" data-to="1"></p>*@
+                                    @ViewBag.PendingRenewCount
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+<script src="~/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script src="~/assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/assets/global/plugins/gsap/main-gsap.min.js"></script> <!-- HTML Animations -->
+<script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+@*<script src="~/assets/sessionTimeout/jquery.sessionTimeout.js"></script>*@
+<script src="~/assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+<script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+<script src="~/assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+<script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+<script src="~/assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+<script src="~/assets/global/plugins/switchery/switchery.min.js"></script> <!-- IOS Switch -->
+<script src="~/assets/global/plugins/retina/retina.min.js"></script>  <!-- Retina Display -->
+<script src="~/assets/global/plugins/jquery-cookies/jquery.cookies.js"></script> <!-- Jquery Cookies, for theme -->
+<script src="~/assets/global/plugins/bootstrap/js/jasny-bootstrap.min.js"></script> <!-- File Upload and Input Masks -->
+<script src="~/assets/global/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script> <!-- A mobile and touch friendly input spinner component for Bootstrap -->
+<script src="~/assets/global/plugins/prettify/prettify.min.js"></script> <!-- Show html code -->
+<script src="~/assets/global/plugins/slick/slick.min.js"></script> <!-- Slider -->
+<script src="~/assets/global/plugins/countup/countUp.min.js"></script> <!-- Animated Counter Number -->
+<script src="~/assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->
+<script src="~/assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+<script src="~/assets/global/plugins/bootstrap-slider/bootstrap-slider.js"></script> <!-- Bootstrap Input Slider -->
+<script src="~/assets/global/plugins/visible/jquery.visible.min.js"></script> <!-- Visible in Viewport -->
+<script src="~/assets/global/js/builder.js"></script>
+<script src="~/assets/global/js/sidebar_hover.js"></script>
+<script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+<script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+<script src="~/assets/global/js/widgets/notes.js"></script>
+<script src="~/assets/global/js/quickview.js"></script> <!-- Quickview Script -->
+<script src="~/assets/global/js/pages/search.js"></script> <!-- Search Script -->
+<script src="~/assets/global/page-builder/js/builder_page.js"></script>
+
+<!-- BEGIN PAGE SCRIPT -->
+<script src="../assets/global/plugins/idle-timeout/jquery.idletimer.min.js"></script> <!-- Logout User After Delay -->
+<script src="../assets/global/plugins/idle-timeout/jquery.idletimeout.min.js"></script> <!-- Logout User After Delay -->
+<script src="../assets/global/js/pages/session_timeout.js"></script>
+<!-- END PAGE SCRIPT -->
+<script>
+    $('#btnProfile').click(function () {
+        window.location.href = '/UpdateInfo/ManagePersonalInfo';
+    });
+</script>
+@if (TempData["StatusConfirm"] != null)
+{
+    <script>
+        bootbox.alert('@TempData["StatusConfirm"]');
+    </script>
+}
+
+

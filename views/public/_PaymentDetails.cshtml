@@ -1,0 +1,48 @@
+﻿
+<div class="form-group" id="BypassPayment" style="display: none">
+    @*<div class="alert alert-success media fade in" style="border-radius:7px">
+            <p style="color:darkblue">
+                <div style="color:darkblue" id="PaymentMethod"></div>
+            </p>
+        </div>*@
+</div>
+<table id="PaymentTbl" class="table table-bordered" style="width: 750px; border: 1px solid #69A8F3; border-collapse: collapse; line-height: 1.1em; color:black;font-size:11px;display:none">
+    <tr>
+        <td align="center" colspan="4" class="TD" style="background-color: #C1DBFA; width: 15%; border: thin solid #69A8F3; ">PAYMENT</td>
+    </tr>
+    <tr>
+        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3; ">
+            Total Amount including GST (RM)
+        </td>
+        <td colspan="3" style="border: thin solid #69A8F3">
+            <div id="TotalAmount"></div>
+        </td>
+    </tr>
+    <tr id="OnlineTbl">
+        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3; ">
+            Mode of Payment
+        </td>
+        <td colspan="3" style="border: thin solid #69A8F3">
+            <input type="radio" value="FPX" name="payment" /><img src="~/Images/payment/fpx.png" style="width:100px;height:30px" /><br /><br />
+            <input type="radio" value="CCX" name="payment" /><img src="~/Images/payment/ccx.png" style="width:100px;height:30px" />
+        </td>
+    </tr>
+    <tr id="ManualTbl">
+        <td class="TD" style="background-color: #ebf6f5; width: 15%; border: thin solid #69A8F3; ">
+            Upload Receipt
+        </td>
+        <td colspan="3" style="border: thin solid #69A8F3">
+            <div class="form-group">
+                <div>
+                    <select name="BankID" id="BankID" data-search="true"></select>
+                </div>
+            </div><br />
+            <div class="form-group">
+                <div>
+                    <input type="file" name="UploadFile" id="txtUploadFile" />
+                </div>
+            </div>
+            <br />
+        </td>
+    </tr>
+</table>

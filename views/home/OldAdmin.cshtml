@@ -1,0 +1,66 @@
+﻿@model OneCRS.MVC.Models.AdminLoginModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>1CRS Admin Panel</title>
+    <link href="~/assets/admin/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css' />
+</head>
+
+<body>
+    <div class="main">
+        <form id="loginadmin" role="form" style="display:none">
+            <h1><span>1CRS Admin</span> <lable> Login </lable> </h1>
+            <div class="inset" id="adminLogin">
+                <span id="errormsg" style="color:red"></span><br />
+                <p>
+                    <label for="userid">USER ID NO</label>
+                    <input type="text" id="adminuserid" name="adminuserid" placeholder="" required />
+                </p>
+                <p>
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="adminpassword" name="adminpassword" placeholder="" required />
+                </p>
+            </div>
+            <p class="p-container" id="loginContainer">
+                <span style="cursor:pointer"><a id="btnForgotPanel">Forgot PIN?</a></span>
+                <input type="submit" id="btnLogin" value="Login">
+            </p>
+        </form>
+        <form id="forgotAdminForm" role="form" style="display:none">
+            <h1><span>1CRS Admin</span> <lable> Forgot PIN </lable> </h1>
+            <div class="inset" id="adminForgotPin">
+                <p>
+                    <label for="adminIcNo">USER ID NO</label>
+                    <input type="text" id="adminIcNo" name="adminIcNo" required />
+                </p>
+                <p>
+                    <label for="adminEmail">EMAIL</label>
+                    <input type="text" id="adminEmail" name="adminEmail" required />
+                </p>
+            </div>
+            <p class="p-container" id="forgotContainer">
+                <span style="cursor:pointer"><a id="btnLoginPanel">LOGIN?</a></span>
+                <input type="submit" id="btnForgot" value="PIN Reset">
+            </p>
+        </form>
+    </div>
+    <!-----start-copyright---->
+    <div class="copy-right">
+        <p>Copyright © 2015  SDN BHD <a href="https://www..com.my/">All rights reserved.</a></p>
+    </div>
+    <!-----//end-copyright---->
+
+    <script src="~/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/ViewsScript/Account/AdminLogin.js"></script>
+</body>
+</html>

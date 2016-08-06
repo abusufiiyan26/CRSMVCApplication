@@ -1,0 +1,67 @@
+﻿@model OneCRS.MVC.Models.Certificate.PublicRequestCert
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Select</b> Package & <b>Upload</b> Supporting Document
+            </div>
+            <div class="steps">
+                Steps 3 - 4
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div id="c_project" style="margin-bottom: 8px">
+            <label>Project</label>
+            @Html.DropDownListFor(m => m.Project, @ViewBag.ProjectID as SelectList, "Select Project")
+        </div>
+        <div id="c_package" style="margin-bottom: 8px">
+            <label>Package</label>
+            @Html.DropDownListFor(m => m.Package, @ViewBag.PackageID as SelectList, "Select Package")
+        </div>
+        <br />
+        <div id="hidepackage" class="col-md-14 portlets">
+            <div class="panel">
+                <div class="panel-content">
+                    <table class="table table-bordered" style="border:1px solid">
+                        <tbody>
+                            <tr>
+                        <thead>
+                        <th>Validity (Month)</th>
+                        <td><div id="validity"></div></td>
+                        </thead>
+                        </tr>
+                        <tr>
+                        <thead>
+                        <th>Media</th>
+                        <td><div id="media"></td>
+                        </thead>
+                        </tr>
+                        <tr>
+                        <thead>
+                        <th>Package Name</th>
+                        <td><div id="packagename"></td>
+                        </thead>
+                        </tr>
+                        <tr>
+                        <thead>
+                        <th>Certificate Description</th>
+                        <td><div id="description"></td>
+                        </thead>
+                        </tr>
+                        <tr>
+                        <thead>
+                        <th>Price (RM)</th>
+                        <td><div id="price"></td>
+                        </thead>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

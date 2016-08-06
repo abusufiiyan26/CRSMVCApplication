@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "ERROR Status";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="~/assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="assets/global/css/style.css" rel="stylesheet">*@
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+    <!-- End Header View -->
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!--End Date Picker-->
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <!--<script src="~/https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+    <!--ViewScript -->
+}
+@using (Html.BeginForm("Index", "Register"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="~/assets/registration/img/freeze/logo.png" alt="" class="logo">
+                    </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="~/">HOME</a>
+                        </li>
+                        <li>
+                            <a href="~/Register">USER REGISTRATION</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+        </nav>
+    </header>
+    <br /><br /><br />
+    <div id="content">
+        <div class="form-container">
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading">1CRS<span>REQUEST CERTIFICATE APPLICATION STATUS</span></h2>
+                    </div>
+                </div><!--/ .row-->
+                <div class="row stage-container">
+
+                    <div id="stage1" class="stage col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-user"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Personal Information</h3>
+                            <div class="stage-info">
+                                Enter your Personal Information
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage1cur" class="stage tmm-current col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-user"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Personal Information</h3>
+                            <div class="stage-info">
+                                Enter your Personal Information
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage1suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-user"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Personal Information</h3>
+                            <div class="stage-info">
+                                Enter your Personal Information
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+
+                    <div id="stage2" class="stage col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-lock"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Account Information</h3>
+                            <div class="stage-info">
+                                Enter your Username & Password
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage2cur" class="stage tmm-current col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-lock"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Account Information</h3>
+                            <div class="stage-info">
+                                Enter your Username & Password
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage2suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-lock"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Account Information</h3>
+                            <div class="stage-info">
+                                Enter your Username & Password
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+
+                    <div id="stage3" class="stage col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-payment"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Security Information</h3>
+                            <div class="stage-info">
+                                Enter your Security Details
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage3cur" class="stage tmm-current col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-payment"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Security Information</h3>
+                            <div class="stage-info">
+                                Enter your Security Details
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage3suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-payment"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Security Information</h3>
+                            <div class="stage-info">
+                                Enter your Security Details
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+
+                    <div id="stage4" class="stage col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-details"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Confirm Your Details</h3>
+                            <div class="stage-info">
+                                Confirm and Validate the Application Form
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage4cur" class="stage tmm-current col-md-3 col-sm-3">
+                        <div class="stage-header head-icon head-icon-details"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Confirm Your Details</h3>
+                            <div class="stage-info">
+                                Confirm and Validate the Application Form
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                    <div id="stage4suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                        <div class="stage-header head-icon head-icon-details"></div>
+                        <div class="stage-content">
+                            <h3 class="stage-title">Confirm Your Details</h3>
+                            <div class="stage-info">
+                                Confirm and Validate the Application Form
+                            </div>
+                        </div>
+                    </div><!--/ .stage-->
+                </div><!--/ .row-->
+
+                <div id="AccountDetailsPnl" class="wizard-step">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-header">
+                                <div class="form-title form-icon title-icon-lock">
+                                    <b>Status</b> Information
+                                </div>
+                                <div class="steps">
+
+                                </div>
+                            </div><!--/ .form-header-->
+                        </div>
+                    </div><!--/ .row-->
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset class="input-block">
+                                @TempData["Status"]<br /><br />
+                                @TempData["Result"]
+                            </fieldset>
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

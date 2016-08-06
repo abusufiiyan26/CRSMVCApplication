@@ -1,0 +1,82 @@
+﻿@model OneCRS.MVC.Models.Admin.NewUserOrg
+<br />
+<form id="NewOrgForm" style="display:none">
+    <div id="NewOrgDetails">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgName" name="NewAddOrgName" required data-parsley-group="block0">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-blue" style="margin-top:20px" id="btnExistingProject"><i class="fa fa-plus"></i> EXISTING COMPANY</button>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Registration No</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgRegNo" name="NewAddOrgRegNo" required data-parsley-group="block0">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgAddress" name="NewAddOrgAddress" required data-parsley-group="block0">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Country</label>
+                    <select class="form-control form-white" id="NewAddOrgCountryID" name="NewAddOrgCountryID" data-search="true"></select>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>State</label>
+                    <select class="form-control form-white" id="NewAddOrgStateID" name="NewAddOrgStateID" data-search="true"></select>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Postcode</label>
+                    <input type="text" pattern="[0-9]*" maxlength="6" class="form-control form-white" id="NewAddOrgPostcode" name="NewAddOrgPostcode" required data-parsley-group="block0">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgCity" name="NewAddOrgCity" required data-parsley-group="block0">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Fax No</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgFaxNo" name="NewAddOrgFaxNo" required data-parsley-group="block0">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Tel No</label>
+                    <input type="text" class="form-control form-white" id="NewAddOrgTelNo" name="NewAddOrgTelNo" required data-parsley-group="block0">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label>Project</label>
+                    <select class="form-control form-white" id="NewAddOrgProject" name="NewAddOrgProject" data-search="true"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="button3" style="text-align:right">
+        <input type="button" class="btn btn-fb btn-embossed" value="ADD ORGANIZATION" id="btnSaveAddNewOrg" />
+    </div>
+</form>

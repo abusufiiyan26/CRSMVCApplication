@@ -1,0 +1,47 @@
+﻿@model OneCRS.MVC.Models.MenuModel
+<ul class="nav nav-sidebar">
+    <li class="nav-active active"><a href="/Dashboard"><i class="icon-home"></i><span>Dashboard</span></a></li>
+
+    @{
+        foreach (var MenuItem in Model.MainMenuModel)
+        {
+
+            var SubMenuItem = Model.SubMenuModel.Where(m => m.MainMenuID == MenuItem.ID);
+            <li class="nav-parent">
+                <a href="@MenuItem.MainMenuURL"><i class="icon-puzzle"></i><span> @MenuItem.MainMenuItem </span><span class="fa arrow"></span></a>
+
+                <ul class="children collapse">
+                    @foreach (var SubItem in SubMenuItem)
+                    {
+                        var SubSubMenuItem = Model.SubSubMenuModel.Where(m => m.MainMenuID == SubItem.MenuID);
+                        <li>
+                            <a href='~/@SubItem.SubMenuURL'>@SubItem.SubMenuItem</a>
+                            @if (SubSubMenuItem.Count() > 0)
+                            {
+                                <ul style="padding-left: 3em; list-style:square;">
+                                    @foreach (var SubSubItem in SubSubMenuItem)
+                                    {
+                                        var Sub3MenuItem = Model.Sub3MenuModel.Where(m => m.MainMenuID == SubSubItem.MenuID);
+                                        <li>
+                                            <a href='~/@SubSubItem.SubSubMenuURL'>@SubSubItem.SubSubMenuItem</a>
+                                            @if (Sub3MenuItem.Count() > 0)
+                                            {
+                                                <ul style="padding-left: 1em; list-style:circle;">
+                                                    @foreach (var Sub3Item in Sub3MenuItem)
+                                                    {
+                                                        <li><a href='~/@Sub3Item.Sub3MenuURL'>@Sub3Item.Sub3MenuItem</a></li>
+                                                    }
+                                                </ul>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </li>
+                    }
+                </ul>
+            </li>
+        }
+    }
+
+</ul>

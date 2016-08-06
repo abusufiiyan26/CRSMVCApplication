@@ -1,0 +1,92 @@
+﻿@model OneCRS.MVC.Models.RegisterModel
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Personal</b> Information
+            </div>
+            <div class="steps">
+                Steps 1 - 4
+            </div>
+        </div><!--/ .form-header-->
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div style="margin-bottom:6px">
+            <label >Name <span style="color: red; font-size: medium">*</span></label>
+            @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label>ID Type <span style="color: red; font-size: medium">*</span></label>
+            <div style="display:inline" id="ic">@Html.RadioButtonFor(m => m.IDType, "IC") IC No</div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display:inline" id="psport">@Html.RadioButtonFor(m => m.IDType, "PP") Passport</div>
+            @Html.ValidationMessageFor(m => m.IDType, "", new { @class = "text-danger" })
+        </div>
+
+        <div id="icno" style="margin-bottom:6px">
+            <label >IC No <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.ICNo, new { maxlength = 12, minlength = 12 })
+            @Html.ValidationMessageFor(m => m.ICNo, "", new { @class = "text-danger" })
+            <span id="result" />
+            <span id="errmsg" style="color:red"></span>
+        </div>
+        <div id="passport" style="margin-bottom:6px">
+            <label >Passport <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.Passport)
+            @Html.ValidationMessageFor(m => m.Passport, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label >Date of Birth <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.DOB)
+            @Html.ValidationMessageFor(m => m.DOB, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label >Gender <span style="color: red; font-size: medium">*</span></label>
+            @Html.RadioButtonFor(m => m.Sex, "M") Male &nbsp;&nbsp;&nbsp;&nbsp;
+            @Html.RadioButtonFor(m => m.Sex, "F") Female
+            @Html.ValidationMessageFor(m => m.Sex, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label >Address <span style="color: red; font-size: medium">*</span></label>
+            @Html.EditorFor(m => m.Address, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-7">
+        <div style="margin-bottom:6px">
+            <label >Country <span style="color: red; font-size: medium">*</span></label>
+            @*<select name="Country"></select>*@
+            @Html.DropDownListFor(m => m.Country, @ViewBag.CountryID as SelectList, "Select Country", new { htmlAttributes = new { @class = "dropdown-select" } })
+            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label >State <span style="color: red; font-size: medium">*</span></label>
+            @Html.DropDownListFor(m => m.State, @ViewBag.StateID as SelectList, "Select State")
+            @Html.ValidationMessageFor(m => m.State, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label >City <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.City)
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label >Postcode <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.Postcode, new { maxlength = 7, minlength = 5 })
+            @Html.ValidationMessageFor(m => m.Postcode, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label >Email <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:6px">
+            <label>Tel No <span style="color: red; font-size: medium">*</span></label>
+            @Html.TextBoxFor(m => m.Mobile_No, new { maxlength = 12, minlength = 10 })
+            @Html.ValidationMessageFor(m => m.Mobile_No, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>

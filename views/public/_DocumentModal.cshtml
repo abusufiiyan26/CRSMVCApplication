@@ -1,0 +1,32 @@
+﻿<div class="modal" id="documentmodal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog" style="font-size:11px;margin-top: 3%; width: 650px;margin-bottom:3px">
+        <div class="modal-content">
+            <div id="docPnl">
+                <fieldset style="padding: 0 3em 1.4em 3em">
+                    <div>
+                        @*<form action="../Document/UploadFiles" class="dropzone">*@
+                        @*<div class="fallback">
+                                <input name="file" type="file" multiple />
+                            </div>*@
+                        <div id="dZUpload" class="dropzone">
+                            <div class="dz-default dz-message"></div>
+                        </div>
+                        <input type="text" id="ShortDesc" name="ShortDesc" style="display:none" />
+                        @*</form>*@
+                    </div>
+                </fieldset>
+                @*<div id="DocumentGrid" style="margin:4px">*@
+                <div id="docs" style="margin:11px">
+                    <table id="documentGridTbl"></table>
+                </div>
+                @*<div id="documentFooter"></div>*@
+                <div id="button" style="text-align:right;margin:10px">
+                    <input type="button" class="btn btn-success btn-embossed" value="CLOSE" id="btnClose" data-dismiss="modal">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

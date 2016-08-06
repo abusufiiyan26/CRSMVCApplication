@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Agent Dashboard";
+    Layout = "~/Views/Shared/_Menu.cshtml";
+}
+
+<link rel="stylesheet" href="/assets/adminlte/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/assets/adminlte/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="/assets/adminlte/dist/css/skins/_all-skins.min.css">
+
+<section>
+    <div class="page-content">
+        <div class="header">
+            <h2><strong>Dashboard</strong> </h2>
+            <div class="breadcrumb-wrapper">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="~/">1CRS</a>
+                    </li>
+                    <li class="active">Dashboard</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12">
+                <div class="callout callout-info" style="margin-bottom: 0!important;">
+                    <h4>WELCOME TO CERTIFICATE REGISTRATION SYSTEM (1CRS)</h4>
+                    Please update your profile before continuing with Certificate Request
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <div class="callout widget-member" style="background-color:white">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="~/assets/global/images/avatars/avatar1.png" alt="avatar 12" class="pull-left img-responsive">
+                        </div>
+                        <div class="col-xs-9">
+                            <h3 class="m-t-0 member-name"><strong>PUBLIC USER (PU)</strong></h3>
+                            <p class="member-job"></p>
+                            <div class="row">
+                                <div class="col-xlg-6 col-lg-12 col-sm-6 align-right">
+                                    <p><i class="icon-folder c-gray-light p-r-10"></i>@Session["ICNo"]</p>
+                                    <p><i class="icon-envelope c-gray-light p-r-10"></i>@Session["Email"]</p>
+                                    <p><i class="icon-call-end c-gray-light p-r-10"></i>@Session["TelNo"]</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            <button type="button" id="btnProfile" class="btn btn-primary">Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <a href="../Certificate/ViewStatus">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-red"><i class="fa fa-certificate"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text"><b>Certificate Management</b></span>
+                            @if (ViewBag.PendingView == 0)
+                            {
+                                <span class="info-box-number">0<small></small></span>
+                            }
+                            else
+                            {
+                                <span class="info-box-number number countup" data-from="0" data-to="@ViewBag.PendingView">@ViewBag.PendingView<small></small></span>
+                            }
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xlg-2 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <a href="../NewInvoice/ListOfCashInvoice">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-credit-card"></i></span>
+                        <div class="info-box-content">
+                            <span class="info-box-text"><b>Payment & Billing</b></span>
+                            @if (ViewBag.PendingPayment == 0)
+                            {
+                                <span class="info-box-number">0<small></small></span>
+                            }
+                            else
+                            {
+                                <span class="info-box-number number countup" data-from="0" data-to="@ViewBag.PendingPayment">@ViewBag.PendingPayment<small></small></span>
+                            }
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-xlg-2 col-lg-8 col-md-4 col-sm-4 col-xs-12">
+                <div class="panel-group panel-accordion" id="accordion2">
+                    <div class="panel" style="border: #ddd; border-radius:4px">
+                        <div class="panel-heading">
+                            <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">
+                                    Guidelines (Manual)
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <h4><a href="../Dashboard">1. Request Certificate</a></h4>
+                                <h4><a href="../Dashboard">2. Renew Certificate</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+<script src="~/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script src="~/assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="~/assets/global/plugins/gsap/main-gsap.min.js"></script> <!-- HTML Animations -->
+<script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+@*<script src="~/assets/sessionTimeout/jquery.sessionTimeout.js"></script>*@
+<script src="~/assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+<script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+<script src="~/assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+<script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+<script src="~/assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+<script src="~/assets/global/plugins/switchery/switchery.min.js"></script> <!-- IOS Switch -->
+<script src="~/assets/global/plugins/retina/retina.min.js"></script>  <!-- Retina Display -->
+<script src="~/assets/global/plugins/jquery-cookies/jquery.cookies.js"></script> <!-- Jquery Cookies, for theme -->
+<script src="~/assets/global/plugins/bootstrap/js/jasny-bootstrap.min.js"></script> <!-- File Upload and Input Masks -->
+<script src="~/assets/global/plugins/touchspin/jquery.bootstrap-touchspin.min.js"></script> <!-- A mobile and touch friendly input spinner component for Bootstrap -->
+<script src="~/assets/global/plugins/prettify/prettify.min.js"></script> <!-- Show html code -->
+<script src="~/assets/global/plugins/slick/slick.min.js"></script> <!-- Slider -->
+<script src="~/assets/global/plugins/countup/countUp.min.js"></script> <!-- Animated Counter Number -->
+<script src="~/assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->
+<script src="~/assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+<script src="~/assets/global/plugins/bootstrap-slider/bootstrap-slider.js"></script> <!-- Bootstrap Input Slider -->
+<script src="~/assets/global/plugins/visible/jquery.visible.min.js"></script> <!-- Visible in Viewport -->
+<script src="~/assets/global/js/builder.js"></script>
+<script src="~/assets/global/js/sidebar_hover.js"></script>
+<script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+<script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+<script src="~/assets/global/js/widgets/notes.js"></script>
+<script src="~/assets/global/js/quickview.js"></script> <!-- Quickview Script -->
+<script src="~/assets/global/js/pages/search.js"></script> <!-- Search Script -->
+<script src="~/assets/global/page-builder/js/builder_page.js"></script>
+<script src="~/ViewsScript/Account/UserDashboard.js"></script>
+
+<!-- BEGIN PAGE SCRIPT -->
+<script src="../assets/global/plugins/idle-timeout/jquery.idletimer.min.js"></script> <!-- Logout User After Delay -->
+<script src="../assets/global/plugins/idle-timeout/jquery.idletimeout.min.js"></script> <!-- Logout User After Delay -->
+<script src="../assets/global/js/pages/session_timeout.js"></script>
+<!-- END PAGE SCRIPT -->
+@if (ViewData["ResultStatus"] != null)
+{
+    <script>
+        alert('@ViewData["ResultStatus"]');
+    </script>
+}
+@if (TempData["StatusConfirm"] != null)
+{
+    <script>
+        bootbox.alert('@TempData["StatusConfirm"]');
+    </script>
+}

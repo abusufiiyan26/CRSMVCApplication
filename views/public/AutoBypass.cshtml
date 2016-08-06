@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "";
+}
+
+<!DOCTYPE html>
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 9]>					<html class="ie9 no-js" lang="en-US">  <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="not-ie no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <!-- Google Web Fonts
+    ================================================== -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:300,300italic,400,500,700%7cCourgette%7cRaleway:400,700,500%7cCourgette%7cLato:700' rel='stylesheet' type='text/css'>
+
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Forms</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/grid.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/assets/testcert/css/fontello.css" />
+
+</head>
+<body>
+    <div id="content">
+        <form action="/" id="certform" role="form">
+            <div id="tmm-form-wizard" class="form-login substrate">
+                <h2 class="form-login-heading">ADMIN ACCESS AREA</h2>
+
+                <button class="button" type="button" id="btnContinue" style="display:none"><span>CONTINUE</span></button>
+                <button class="button" type="button" id="btnPrevious" style="display:none"><span>PREVIOUS DATA</span></button>
+
+                <fieldset class="input-block" id="HideContinueUsers" style="display:none">
+                    <label for="UserID">User</label>
+                    <select id="UserID" name="UserID" class="dropdown-select"></select>
+                </fieldset>
+
+                <fieldset class="input-block" id="HideUsername">
+                    <label for="UserName">User ID</label>
+                    <input type="text" id="UserName" class="form-icon form-icon-user">
+                </fieldset>
+
+                <fieldset class="input-block" id="HidePassword">
+                    <label for="Password">Password</label>
+                    <input type="password" id="Password" class="form-icon form-icon-lock">
+                </fieldset>
+
+                <fieldset class="input-block" id="HidePin">
+                    <label for="Pin">PIN</label>
+                    <input type="password" id="Pin" class="form-icon form-icon-lock">
+                </fieldset>
+
+                <fieldset class="input-block" id="HideUserName2" style="display:none">
+                    <label for="UserName2">Second ID</label>
+                    <input type="text" id="UserName2" class="form-icon form-icon-user">
+                </fieldset>
+
+                <fieldset class="input-block" id="HideUserIDSelect" style="display:none">
+                    <label for="UserSelection">Name</label>
+                    <select id="UserSelection" name="UserSelection" class="dropdown-select"></select>
+                </fieldset>
+
+                <fieldset class="input-block" id="HideProject" style="display:none">
+                    <label for="Project">Project</label>
+                    <select id="Project" name="Project" class="dropdown-select"></select>
+                </fieldset>
+
+                <fieldset class="input-block" id="HideAllActiveUsers" style="display:none">
+                    <label for="ActiveUsers">User</label>
+                    <select id="ActiveUsers" name="ActiveUsers" class="dropdown-select"></select>
+                </fieldset>
+
+                <fieldset class="input-block" id="HideRequestRevoke" style="display:none">
+                    <label for="RevokeUserID">UserID</label>
+                    <input type="text" id="RevokeUserID" class="form-icon form-icon-user">
+                    <br />
+                    <label for="RevokeCompID">Company ID</label>
+                    <input type="text" id="RevokeCompID" class="form-icon form-icon-user">
+                    <br />
+                    <label for="RevokeOrgID">Project ID</label>
+                    <input type="text" id="RevokeOrgID" class="form-icon form-icon-user">
+                </fieldset>
+
+                <div class="button-group">
+                    <button class="button" type="button" id="btnReqRevoke" style="display:none"><span>REQUEST REVOKE</span></button>
+                    <button class="button" type="button" id="btnRedirectRevoke" style="display:none"><span>REDIRECT REVOKE</span></button>
+
+                    <button class="button" type="button" id="btnCreate"><span>CREATE</span></button>
+                    
+                    <button class="button" type="button" id="btnRedirectPrevious" style="display:none"><span>REDIRECT PREVIOUS DATA</span></button>
+
+                    <button class="button" type="button" id="btnRedirect" style="display:none"><span>REDIRECT</span></button>
+                    
+                    <button class="button" type="button" id="btnContinueRedirect" style="display:none"><span>CONTINUE REDIRECT</span></button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="~/assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="~/assets/testcert/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/ViewsScript/Public/WizardCreateInfo.js"></script>
+</body>
+</html>

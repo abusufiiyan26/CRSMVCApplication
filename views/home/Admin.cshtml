@@ -1,0 +1,85 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin Login Panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="~/assets/landing_new/img/logo2.png">
+    <link href="../assets/global/css/style.css" rel="stylesheet">
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../assets/global/plugins/bootstrap-loading/lada.min.css" rel="stylesheet">
+</head>
+<body class="sidebar-light account2" data-page="login">
+    <!-- BEGIN LOGIN BOX -->
+    <div class="container" id="login-block">
+        <i class="user-img icons-faces-users-03"></i>
+        <div class="account-info">
+            @*<a href="dashboard.html"><img style="max-width:200px" src="~/assets/landing_new/img/logo.png"></a>*@
+            <h3 style="font-size:20px"><b>Admin Panel</b></h3>
+            <ul>
+                <li><img style="max-width:30px" src="~/assets/global/images/logo/user_admin.png"> Admin Management</li>
+                <li><img style="max-width:30px" src="~/assets/global/images/logo/Certification.png"> Production Management</li>
+                <li><img style="max-width:30px" src="~/assets/global/images/logo/sales-icon.png"> Sales Management</li>
+                <li><img style="max-width:30px" src="~/assets/global/images/logo/finance.png"> Finance Management</li>
+            </ul>
+        </div>
+        <div class="account-form">
+            <form class="form-signin" id="loginadmin" role="form">
+                <h3><strong>Sign in</strong> to your account</h3>
+                <span id="errormsg" style="color:red"></span><br />
+                <div class="append-icon">
+                    <input type="text" name="adminuserid" id="adminuserid" class="form-control form-white username" placeholder="ID No" required>
+                    <i class="icon-user"></i>
+                </div>
+                <div class="append-icon m-b-20">
+                    <input type="password" name="adminpassword" id="adminpassword" class="form-control form-white password" placeholder="Pin" required>
+                    <i class="icon-lock"></i>
+                </div>
+                <button type="submit" id="submit-form" class="btn btn-lg btn-dark btn-rounded ladda-button" data-style="expand-left">Login</button>
+                <span class="forgot-password"><a id="password" href="account-forgot-password.html">Forgot Pin?</a></span>
+                <div class="form-footer">
+                    <div class="clearfix">
+                        <p class="new-here"><a style="color:black" href="../AdminRegistration/NewRequest">Request to become an Admin?</a></p>
+                    </div>
+                </div>
+            </form>
+            <form id="resetadmin" class="form-password" role="form">
+                <h3><strong>Reset</strong> your PIN</h3>
+                <div class="append-icon m-b-20">
+                    <input type="text" name="adminIcNo" id="adminIcNo" class="form-control form-white password" placeholder="IC No" required>
+                    <i class="icon-lock"></i>
+                </div>
+                <div class="append-icon m-b-20">
+                    <input type="text" name="adminEmail" id="adminEmail" class="form-control form-white password" placeholder="Email Address" required>
+                    <i class="icon-envelope"></i>
+                </div>
+                <button type="submit" id="submit-password" class="btn btn-lg btn-danger btn-block ladda-button" data-style="expand-left">Send PIN Reset Link</button>
+                <div class="clearfix m-t-60">
+                    <p class="pull-left m-t-20 m-b-0"><a id="login" href="#">Have an account? Sign In</a></p>
+                    @*<p class="pull-right m-t-20 m-b-0"><a href="user-signup2.html">Request to become an Admin?</a></p>*@
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- END LOCKSCREEN BOX -->
+    <p class="account-copyright">
+        <span>Copyright © 2016 </span><span></span>.<span>All rights reserved.</span>
+    </p>
+    <script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/global/plugins/backstretch/backstretch.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap-loading/lada.min.js"></script>
+    <script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+    @*<script src="../assets/global/js/pages/login-v2.js"></script>*@
+    <script src="../assets/admin/layout3/js/layout.js"></script>
+    <script src="~/ViewsScript/Account/AdminPanelLogin.js"></script>
+</body>
+</html>

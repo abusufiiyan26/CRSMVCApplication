@@ -1,0 +1,326 @@
+﻿@model OneCRS.MVC.Models.Certificate.PublicRequestCert
+@{
+    ViewBag.Title = "1CRS Certificate Renewal Form";
+}
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="shortcut icon" href="~/favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    @*<link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">*@
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <!-- DOCUMENT CSS-->
+    <link href="../assets/global/plugins/dropzone/dropzone.min.css" rel="stylesheet">
+
+    <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="../assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="~/assets/global/css/style.css" rel="stylesheet" />*@
+    @*<link href="~/assets/global/css/theme.css" rel="stylesheet" />*@
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../Content/toastr.min.css" rel="stylesheet" />
+    <!-- End Header View -->
+    <!--JQGRID TABLE CSS -->
+    <link href="../Content/jquery.jqGrid/ui.jqgrid.css" rel="stylesheet" />
+    <link href="../Content/gridmaster.css" rel="stylesheet" />
+    <link href="../Content/blue-jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link href="../Content/font-awesome.css" rel="stylesheet" />
+    <link href="../Content/font-awesome-animation.min.css" rel="stylesheet" />
+    <link href="~/assets/global/css/icons/font-awesome/font-awesome.css" rel="stylesheet">
+
+    <!-- JTABLE TABLE CSS -->
+    <link href="~/Scripts/jtable/themes/lightcolor/blue/jtable.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- PAGE STYLE -->
+    <link href="~/assets/global/plugins/metrojs/metrojs.min.css" rel="stylesheet">
+}
+
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container" style="margin-top:10px;margin-bottom:1px">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="~/home">
+                    <img src="~/assets/registration/img/freeze/logo.png" style="width:250px" alt="" class="logo">
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            </div>
+        </div>
+    </nav>
+</header>
+<br /><br /><br /><br />
+<div id="content">
+    <div class="form-container">
+        <div id="tmm-form-wizard" class="container substrate">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="form-login-heading">1CRS<span>RENEW CERTIFICATE</span></h2>
+                </div>
+            </div><!--/ .row-->
+            <div class="row stage-container">
+                <div id="stage1" class="stage col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-user"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Personal Information</h3>
+                        <div class="stage-info">
+                            Enter your Personal Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage1cur" class="stage tmm-current col-md-3 col-sm-3">
+                    <div class="stage-header head-icon head-icon-user"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Personal Information</h3>
+                        <div class="stage-info">
+                            Enter your Personal Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage1suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-user"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Personal Information</h3>
+                        <div class="stage-info">
+                            Enter your Personal Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+
+                <div id="stage2" class="stage col-md-3 col-sm-3">
+                    <div class="stage-header head-icon head-icon-lock"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Company Information</h3>
+                        <div class="stage-info">
+                            Enter your Company Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage2cur" class="stage tmm-current col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-lock"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Company Information</h3>
+                        <div class="stage-info">
+                            Enter your Company Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage2suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-lock"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Company Information</h3>
+                        <div class="stage-info">
+                            Enter your Company Information
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+
+                <div id="stage3" class="stage col-md-3 col-sm-3">
+                    <div class="stage-header head-icon head-icon-details"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Select Package</h3>
+                        <div class="stage-info">
+                            Select a Package Accordingly
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage3cur" class="stage tmm-current col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-details"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Select Package</h3>
+                        <div class="stage-info">
+                            Select a Package Accordingly
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage3suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-details"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Select Package</h3>
+                        <div class="stage-info">
+                            Select a Package Accordingly
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+
+                <div id="stage4" class="stage col-md-3 col-sm-3">
+                    <div class="stage-header head-icon head-icon-payment"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Document & Payment</h3>
+                        <div class="stage-info">
+                            Upload Document and Make Payment
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage4cur" class="stage tmm-current col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-payment"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Document & Payment</h3>
+                        <div class="stage-info">
+                            Upload Document and Make Payment
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+                <div id="stage4suc" class="stage tmm-success col-md-3 col-sm-3" style="display:none">
+                    <div class="stage-header head-icon head-icon-payment"></div>
+                    <div class="stage-content">
+                        <h3 class="stage-title">Document & Payment</h3>
+                        <div class="stage-info">
+                            Upload Document and Make Payment
+                        </div>
+                    </div>
+                </div><!--/ .stage-->
+            </div>
+
+            <div id="PersonalDetailsPnl" class="wizard-step" style="display:none">
+                @Html.Partial("~/Views/PublicRenew/_RenewPersonalDetails.cshtml")
+                <div class="wizard-nav">
+                    <div class="next">
+                        <input class="button button-control" type="button" value="Next Step >" style="width:100px;height:30px" id="validatePersonalDetails" />
+                    </div>
+                </div>
+            </div>
+            <div id="AccountDetailsPnl" class="wizard-step" style="display:none">
+                @Html.Partial("~/Views/PublicRenew/_RenewCompanyDetails.cshtml")
+                <div class="wizard-nav">
+                    <div class="wizard-nav">
+                        <div class="prev">
+                            <input class="button button-control" type="button" value="< Prev Step" style="width:100px;height:30px" onclick="showPersonalDetailsPnl();" />
+                        </div>
+                        <div class="next">
+                            <input class="button button-control" type="button" value="Next Step >" style="width:100px;height:30px" onclick="validateAccountDetails();" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="SecurityDetailsPnl" style="display:none">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-header">
+                            <div class="form-title form-icon title-icon-lock">
+                                <b>Select</b> Package
+                            </div>
+                            <div class="steps">
+                                Steps 3 - 4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <fieldset style="border-radius:10px">
+                    <legend>Package Information</legend>
+                    @Html.Partial("~/Views/Public/_PackageDocDetails.cshtml")
+                    @Html.Partial("~/Views/Public/_TypePackageDetails.cshtml")
+                </fieldset>
+                @Html.Partial("~/Views/Public/_CertPINSetup.cshtml")
+                <div class="wizard-nav">
+                    <div class="prev">
+                        <input class="button button-control" type="button" value="< Prev" style="width:100px;height:30px" onclick="showAccountDetailsPnl();" />
+                    </div>
+                    <div class="next">
+                        <input class="button button-control" type="button" value="Next >" style="width:100px;height:30px" onclick="validateSecurityDetails();" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="ConfirmationPnl" class="wizard-step wizard-confirmation" style="display:none">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-header">
+                            <div class="form-title form-icon title-icon-lock">
+                                <b>Upload your Document</b> and Make Payment
+                            </div>
+                            <div class="steps">
+                                Steps 4 - 4
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" id="iCountNRIC" value="@ViewBag.iCountNRIC" />
+                <input type="hidden" id="iCountAL" value="@ViewBag.iCountAL" />
+                <span id="termscondition" style="color:white;background-color:red">Please upload only pdf,jpg or png and file size must not more than 1MB</span>
+
+                @Html.Partial("~/Views/Public/_DocumentDetails.cshtml")
+                <br />
+                @Html.Partial("~/Views/Public/_PaymentDetails.cshtml")
+                <br />
+                <div class="wizard-nav">
+                    <div class="prev">
+                        <input class="button button-control" type="button" value="< Prev" style="width:100px;height:30px" onclick="showSecurityDetailsPnl();" />
+                    </div>
+                    <div class="next">
+                        <input class="button button-control" type="button" style="width:100px;height:30px" value="Submit" id="btnSubmit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("~/Views/Public/_TermsConditionModal.cshtml")
+<footer style="background-color:white;text-align:center">
+    <div class="container">
+        <div class="social">
+        </div>
+        <div class="rights">
+            <p>Copyright &copy; 2015  Sdn Bhd. All right reserved</p>
+            <p>1CRS is best viewed on a screen with 1024 x 768 resolution or higher with Internet Explorer 10.0, Chrome, and Safari</p>
+        </div>
+        <br />
+    </div>
+</footer>
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/registration/js/modernizr.custom.32033.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!-- Bootstrap-->
+    <script src="~/assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/global/plugins/bootbox/bootbox.min.js"></script>
+
+    <!-- JTABLE SCRIPTS-->
+    <script src="~/Scripts/jtable/jquery.jtable.min.js" type="text/javascript"></script>
+
+    <!-- JQRID TABLE-->
+    <script src="../Scripts/jquery.jqGrid.min.js"></script>
+    <script src="../Scripts/i18n/grid.locale-en.js"></script>
+
+    <!-- File UPLOAD-->
+    <script src="../assets/global/plugins/dropzone/dropzone.min.js"></script>
+
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Content/loader/loadingoverlay.min.js"></script>
+    <script src="../ViewsScript/Certificate/Public_RenewCert.js"></script>
+    <script src="../ViewsScript/Certificate/Public_RenewCertDocument.js"></script>
+
+}

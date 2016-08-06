@@ -1,0 +1,63 @@
+﻿
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Company</b> Information
+            </div>
+            <div class="steps">
+                Steps 2 - 4
+            </div>
+        </div>
+    </div>
+</div>
+<fieldset style="border-radius:10px">
+    @*<legend>Company Information</legend>*@
+    <div class="form-group">
+        <div class="alert alert-success media fade in" style="border-radius:7px">
+            <p style="color:darkblue">
+                <div style="color: darkblue; font-family: 'Lato', Arial">Fields (<span style="color:red;font-size:16px">*</span>) are required</div>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <div id="company_name" style="margin-bottom: 8px">
+                <label><span style="color:red;font-size:16px">*</span> Company Name</label>
+                <input type="text" id="C_Name" name="C_Name" style='text-transform:uppercase' value='@Model.CompanyName' disabled>
+            </div>
+            <div id="company_regno" style="margin-bottom: 8px">
+                <label><span style="color:red;font-size:16px">*</span> Registration No</label>
+                <input type="text" id="C_RegNo" name="C_RegNo" style='text-transform:uppercase' value='@Model.CompanyRegistrationNo' disabled>
+            </div>
+            <div id="company_address" style="margin-bottom: 8px">
+                <label><span style="color:red;font-size:16px">*</span> Address</label>
+                <input type="text" id="C_Address" style='text-transform:uppercase' name="C_Address" value='@Model.CompanyAddress'>
+            </div>
+            <div style="margin-bottom:8px">
+                <label><span style="color:red;font-size:16px">*</span> City</label>
+                <input type="text" id="C_City" style='text-transform:uppercase' name="C_City" value='@Model.CompanyCity'>
+            </div>
+            <div style="margin-bottom:8px">
+                <label><span style="color:red;font-size:16px">*</span> Postcode</label>
+                <input type="text" id="C_Postcode" name="C_Postcode" value='@Model.CompanyPostcode'>
+            </div>
+            <div style="margin-bottom: 8px">
+                <label><span style="color:red;font-size:16px">*</span> Country</label>
+                @Html.DropDownList("CompanyCountry", (SelectList)ViewBag.CompCountryID, new { @id = "C_Country" })
+            </div>
+            <div style="margin-bottom: 8px">
+                <label><span style="color:red;font-size:16px">*</span> State</label>
+                @Html.DropDownList("CompanyState", (SelectList)ViewBag.CompStateID, new { @id = "C_State" })
+            </div>
+            <div style="margin-bottom:8px">
+                <label><span style="color:red;font-size:16px">*</span> Fax No</label>
+                <input type="text" id="C_Fax_No" name="C_Fax_No" value='@Model.CompanyFax_No'>
+            </div>
+            <div style="margin-bottom:8px">
+                <label><span style="color:red;font-size:16px">*</span> Telephone No</label>
+                <input type="text" id="C_Mobile_No" name="C_Mobile_No" value='@Model.CompanyMobile_No'>
+            </div>
+        </div>
+    </div>
+</fieldset>

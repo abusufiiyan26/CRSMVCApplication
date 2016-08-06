@@ -1,0 +1,227 @@
+﻿<legend style=" margin-left:20px;background-color:#1f497d; padding-left:30px; padding-top:2px; padding-right:50px; padding-bottom:2px; color:white; border-radius:15px; border:3px solid #eeece1; font-size:20px; "><b>Manage Verification & Approval</b></legend>
+<br />
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label><span style="color: red; font-size: 18px">*</span> List of Media</label>
+            <select class="form-control form-white" id="mediaSelect" name="mediaSelect" data-style="white" data-search="true">
+                <option value="">Please select..</option>
+            </select>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row" id="roamingverification" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-md-4">Verification</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="V_IsAP" id="visrp" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RP Verification
+                        </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="V_IsAP" id="visap" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required >
+                            AP Verification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Approval</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="A_IsRO" id="aisro" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RO Approval
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <label>
+                            <input type="radio" value="" name="A_IsRO" id="aisbypass" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>
+                            Automatic Approval
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="tokenverification" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-md-4">Verification</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="TokenV" id="Token_V_IsRP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RP Verification
+                        </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="TokenV" id="Token_V_IsAP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required >
+                            AP Verification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Approval</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="TokenA" id="Token_A_IsRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RO Approval
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <label>
+                            <input type="radio" value="" name="TokenA" id="Token_A_IsBypassRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>
+                            Automatic Approval
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="softverification" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-md-4">Verification</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SoftV" id="Soft_V_IsRP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RP Verification
+                        </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SoftV" id="Soft_V_IsAP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required >
+                            AP Verification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Approval</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SoftA" id="Soft_A_IsRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RO Approval
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <label>
+                            <input type="radio" value="" name="SoftA" id="Soft_A_IsBypassRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>
+                            Automatic Approval
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="smartverification" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-md-4">Verification</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SmartV" id="Smart_V_IsRP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RP Verification
+                        </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SmartV" id="Smart_V_IsAP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required >
+                            AP Verification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Approval</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="SmartA" id="Smart_A_IsRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RO Approval
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <label>
+                            <input type="radio" value="" name="SmartA" id="Smart_A_IsBypassRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>
+                            Automatic Approval
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row" id="serververification" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label class="control-label col-md-4">Verification</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="ServerV" id="Server_V_IsRP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RP Verification
+                        </label>
+                    </div>
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="ServerV" id="Server_V_IsAP" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required >
+                            AP Verification
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-4">Approval</label>
+            <div class="col-md-8">
+                <div id="rdoSelect">
+                    <div class="col-md-7">
+                        <label>
+                            <input type="radio" value="" name="ServerA" id="Server_A_IsRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required checked>
+                            RO Approval
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <label>
+                            <input type="radio" value="" name="ServerA" id="Server_A_IsBypassRO" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>
+                            Automatic Approval
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

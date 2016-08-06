@@ -1,0 +1,63 @@
+﻿@model OneCRS.MVC.Models.RegisterModel
+
+<style>
+    input[type="radio"] {
+        /*display: none;*/
+    }
+
+        input[type="radio"]:checked {
+            border: 1px solid red;
+        }
+</style>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Security</b> Information
+            </div>
+            <div class="steps">
+                Steps 3 - 4
+            </div>
+        </div><!--/ .form-header-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-7">
+        <fieldset>
+            @Html.LabelFor(m => m.SecurityImg)
+            <br /><br />
+            <div>
+                <input type="radio" name="SecurityImg" value="vg.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="vg.png"><img src="~/images/security/vg.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="bm.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="bm.png"><img src="~/images/security/bm.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="cat.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="cat.png"><img src="~/images/security/cat.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="earth.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="earth.png"><img src="~/images/security/earth.png" style="width:60px;height:60px" /></label>
+                <br />
+                <input type="radio" name="SecurityImg" value="flower.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="flower.png"><img src="~/images/security/flower.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="mark.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="mark.png"><img src="~/images/security/mark.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="dice.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="dice.png"><img src="~/images/security/dice.png" style="width:60px;height:60px" /></label>
+
+                <input type="radio" name="SecurityImg" value="rhombi.png" id="SecurityImg" />
+                <label style="width: 65px; height: 65px; " for="rhombi.png"><img src="~/images/security/rhombi.png" style="width:60px;height:60px" /></label>
+            </div>
+            @Html.ValidationMessageFor(m => m.SecurityImg, "", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(m => m.SecurityPhrase)
+            @Html.TextBoxFor(m => m.SecurityPhrase)
+            @Html.ValidationMessageFor(m => m.SecurityPhrase, "", new { @class = "text-danger" })
+        </fieldset>
+        <br /><br /><br /><br />
+    </div>
+</div>

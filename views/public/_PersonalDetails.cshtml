@@ -1,0 +1,189 @@
+﻿@model OneCRS.MVC.Models.Certificate.PublicRequestCert
+<style type="text/css">
+    input[type="radio"]:checked {
+        border: 1px solid red;
+    }
+
+    .uppercaseForm {
+        text-transform: uppercase;
+    }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Personal</b> Information
+            </div>
+            <div class="steps">
+                Steps 1 - 4
+            </div>
+        </div><!--/ .form-header-->
+    </div>
+</div><!--/ .row-->
+
+<fieldset style="border-radius:10px">
+    <legend>User Account</legend>
+    <div class="form-group">
+        <div class="alert alert-success media fade in" style="border-radius:7px">
+            <p style="color:darkblue">
+                <div style="color: darkblue; font-family: 'Lato', Arial">This login credential is for  Certificate Registration System (CRS)</div>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-7">
+        <input type="hidden" id="hideEditMode" value="@Model.hideEditModes" />
+        <div style="margin-bottom:8px">
+            <label style="width:150px"><span style="color:red;font-size:16px">*</span> Username</label>
+            @*<input type="text" placeholder="" id="UserName" name="UserName" value=''>*@
+            @if (Model.IsEditMode == false)
+            {
+                @Html.TextBoxFor(m => m.UserName, new { disabled = "disabled" })
+            }
+            else
+            {
+                @Html.TextBoxFor(m => m.UserName, new { maxlength = 12, minlength = 6 })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            }
+            <img src="../assets/tooltip/img/yellow_icon.png" id="username-tooltip" style="width:20px;height:20px" />
+            <div id="uname"></div>
+        </div>
+        <div style="margin-bottom:8px">
+            <label style="width:150px"><span style="color:red;font-size:16px">*</span> Password</label>
+            @if (Model.IsEditMode == false)
+            {
+                @Html.PasswordFor(m => m.Password, new { disabled = "disabled", placeholder = "***********" })
+            }
+            else
+            {
+                @Html.PasswordFor(m => m.Password, new { maxlength = 12, minlength = 6 })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            }
+            <img src="../assets/tooltip/img/yellow_icon.png" id="password-tooltip" style="width:20px;height:20px" />
+            @*<input type="password" placeholder="" id="Password" name="Password" value=''>*@
+        </div>
+        <div style="margin-bottom:8px">
+            @if (Model.IsEditMode == false)
+            {
+            }
+            else
+            {
+                <label style="width:150px"><span style="color:red;font-size:16px">*</span> Confirm Password</label>
+                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+            }
+        </div>
+        @if (Model.IsEditMode == false)
+        {
+        }
+        else
+        {
+            <fieldset style="border-radius:10px">
+                <label><span style="color:red;font-size:16px">*</span> Security Image</label>
+                <div>
+                    <input type="radio" name="SecurityImg" value="vg.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="vg.png"><img src="~/images/security/vg.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="bm.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="bm.png"><img src="~/images/security/bm.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="cat.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="cat.png"><img src="~/images/security/cat.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="earth.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="earth.png"><img src="~/images/security/earth.png" style="width:60px;height:60px" /></label>
+                    <br />
+                    <input type="radio" name="SecurityImg" value="flower.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="flower.png"><img src="~/images/security/flower.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="mark.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="mark.png"><img src="~/images/security/mark.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="dice.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="dice.png"><img src="~/images/security/dice.png" style="width:60px;height:60px" /></label>
+
+                    <input type="radio" name="SecurityImg" value="rhombi.png" id="SecurityImg" />
+                    <label style="width: 65px; height: 65px; " for="rhombi.png"><img src="~/images/security/rhombi.png" style="width:60px;height:60px" /></label>
+
+                </div>
+                <br />
+                <label><span style="color:red;font-size:16px">*</span> Security Phrase</label>
+                <input type="text" placeholder="" id="SecurityPhrase" name="SecurityPhrase" maxlength="10">
+            </fieldset>
+        }
+    </div>
+</fieldset>
+<fieldset style="border-radius:10px">
+    <legend>User Profile</legend>
+    <div class="form-group">
+        <div class="alert alert-success media fade in" style="border-radius:7px">
+            <p style="color:darkblue">
+                <div style="color: darkblue; font-family: 'Lato', Arial">This is your Personal Information. Fields (<span style="color:red;font-size:16px">*</span>) are required</div>
+            </p>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <input type="hidden" id="HideGender" value="@ViewBag.Gender" />
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> IC NO / Passport</label>
+            <input type="text" placeholder="IC NO" id="ICNo" name="ICNo" value='@Model.ICNo' disabled>
+            <img src="../assets/tooltip/img/yellow_icon.png" id="ic-tooltip" style="width:20px;height:20px" />
+        </div>
+        <div id="name" style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Name <span id="icTerms" style="color: red;font-size:12px;display:block">(As per IC/Passport)</span></label>
+            <input type="text" placeholder="Name" id="Name" name="Name" value='@Model.Name' style='text-transform:uppercase' disabled>
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Gender </label>
+            <div id="OpenMaleGender">
+                <input type="radio" id="Sex" name="Sex" value="M" /> Male &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="Sex" name="Sex" value="F" /> Female
+            </div>
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Date of Birth </label>
+            <input type="text" id="DOB" name="DOB" value='@Model.DOBString'>
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Email</label>
+            @*<input type="text" id="Email" name="Email" value='@Model.Email'>*@
+            @Html.TextBoxFor(m => m.Email)
+            <img src="../assets/tooltip/img/yellow_icon.png" id="email-tooltip" style="width:20px;height:20px" />
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Telephone No</label>
+            @*<input type="text" placeholder="Telephone No" id="Mobile_No" name="Mobile_No" value='@Model.Mobile_No'>*@
+            @Html.TextBoxFor(m => m.Mobile_No)
+            <img src="../assets/tooltip/img/yellow_icon.png" id="telno-tooltip" style="width:20px;height:20px" />
+            @Html.ValidationMessageFor(m => m.Mobile_No, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Address</label>
+            @*<input type="text" placeholder="Address" id="Address" name="Address" style='text-transform:uppercase' value='@Model.Address'>*@
+            @Html.TextBoxFor(m => m.Address, new { @class = "uppercaseForm" })
+            @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Country</label>
+            @Html.DropDownList("Country", (SelectList)ViewBag.Countuses, new { @id = "Country" })
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-7">
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> State</label>
+            @Html.DropDownList("State", (SelectList)ViewBag.Statuses, new { @id = "State" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> Postcode</label>
+            @*<input type="text" placeholder="Postcode" id="Postcode" name="Postcode" value='@Model.Postcode'>*@
+            @Html.TextBoxFor(m => m.Postcode)
+            @Html.ValidationMessageFor(m => m.Postcode, "", new { @class = "text-danger" })
+        </div>
+        <div style="margin-bottom:8px">
+            <label><span style="color:red;font-size:16px">*</span> City</label>
+            @*<input type="text" placeholder="City" id="City" name="City" style='text-transform:uppercase' value='@Model.City'>*@
+            @Html.TextBoxFor(m => m.City, new { @class = "uppercaseForm" })
+            @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</fieldset>

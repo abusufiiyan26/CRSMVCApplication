@@ -1,0 +1,146 @@
+﻿@model OneCRS.MVC.Models.Sales.Project
+<legend style=" margin-left:20px;background-color:#1f497d; padding-left:30px; padding-top:2px; padding-right:50px; padding-bottom:2px; color:white; border-radius:15px; border:3px solid #eeece1; font-size:20px; "><b>Manage Document</b></legend>
+<br />
+<div class="row" ng-controller="ProjectController">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Supporting Document</label>
+        </div>
+        <div class="form-group">
+            <div class="col-md-4">
+                <label>
+                    @if (Model.SD_IsRequiredBool == true)
+                    {
+                        <input type="radio" value="Y" name="SD_IsRequired" id="sdrequired1" checked="checked" data-radio="iradio_square-blue">
+                        @*@Html.RadioButtonFor(model => model.SD_IsRequired, "Y", new { @checked = true })*@
+                    }
+                    else
+                    {
+                        <input type="radio" value="Y" name="SD_IsRequired" id="sdrequired1" data-radio="iradio_square-blue">
+                        @*@Html.RadioButtonFor(model => model.SD_IsRequired, "Y")*@
+                    }
+                    @*<input type="radio" value="Yes" name="SD_IsRequired" id="sdrequired1" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>*@
+                    Yes
+                </label>
+            </div>
+        </div>
+        <div class="form-group" id="supdoc">
+            <div class="col-lg-8">
+                <div class="radio">
+                    <label>
+                        @*@Html.CheckBoxFor(model => model.SD_IsIC)*@
+                        @if (Model.SD_IsIC == true)
+                        {
+                            <input type="checkbox" name="SD_IsIC" id="sdic" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsIC" id="sdic" data-checkbox="icheckbox_square-blue">
+                        }
+                        IC
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @if (Model.SD_IsSSM == true)
+                        {
+                            <input type="checkbox" name="SD_IsSSM" id="sdssm" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsSSM" id="sdssm" data-checkbox="icheckbox_square-blue">
+                        }
+                        @*@Html.CheckBoxFor(model => model.SD_IsSSM)*@
+                        @*<input type="checkbox" name="SD_IsSSM" id="sdssm" data-checkbox="icheckbox_square-blue">*@
+                        SSM
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @if (Model.SD_IsRegSlip == true)
+                        {
+                            <input type="checkbox" name="SD_IsRegSlip" id="sdregslip" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsRegSlip" id="sdregslip" data-checkbox="icheckbox_square-blue">
+                        }
+                        @*@Html.CheckBoxFor(model => model.SD_IsRegSlip)*@
+                        @*<input type="checkbox" name="SD_IsRegSlip" id="sdregslip" data-checkbox="icheckbox_square-blue">*@
+                        System Registration Slip / Email
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @if (Model.SD_IsAuthLetter == true)
+                        {
+                            <input type="checkbox" name="SD_IsAuthLetter" id="sdauth" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsAuthLetter" id="sdauth" data-checkbox="icheckbox_square-blue">
+                        }
+                        @*@Html.CheckBoxFor(model => model.SD_IsAuthLetter)*@
+                        @*<input type="checkbox" name="SD_IsAuthLetter" id="sdauth" data-checkbox="icheckbox_square-blue">*@
+                        Authorization Letter
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @if (Model.SD_IsPassPort == true)
+                        {
+                            <input type="checkbox" name="SD_IsPassPort" id="SD_IsPassPort" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsPassPort" id="SD_IsPassPort" data-checkbox="icheckbox_square-blue">
+                        }
+                        Picture
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        @if (Model.SD_IsSupporting1 == true)
+                        {
+                            <input type="checkbox" name="SD_IsSupporting1" id="SD_IsSupporting1" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsSupporting1" id="SD_IsSupporting1" data-checkbox="icheckbox_square-blue">
+                        }
+                        Payment Slip
+                    </label>
+                </div>
+                @*<div class="radio">
+                    <label>
+                        @if (Model.SD_IsSupporting2 == true)
+                        {
+                            <input type="checkbox" name="SD_IsSupporting2" id="SD_IsSupporting2" checked="checked" data-checkbox="icheckbox_square-blue">
+                        }
+                        else
+                        {
+                            <input type="checkbox" name="SD_IsSupporting2" id="SD_IsSupporting2" data-checkbox="icheckbox_square-blue">
+                        }
+                        Authorization Letter
+                    </label>
+                </div>*@
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label>
+                @if (Model.SD_IsRequiredBool == true)
+                {
+                    <input type="radio" value="N" name="SD_IsRequired" id="sdrequired0" data-radio="iradio_square-blue">
+                    @*@Html.RadioButtonFor(model => model.SD_IsRequired, "N")*@
+                }
+                else
+                {
+                    <input type="radio" value="N" name="SD_IsRequired" id="sdrequired0" checked="checked" data-radio="iradio_square-blue">
+                    @*@Html.RadioButtonFor(model => model.SD_IsRequired, "N", new { @checked = true })*@
+                }
+                @*<input type="radio" value="No" name="SD_IsRequired" id="sdrequired0" data-parsley-group="block1" data-radio="iradio_square-blue" data-parsley-errors-container='div[id="condition-error"]' required>*@
+                No
+            </label>
+        </div>
+    </div>
+</div>

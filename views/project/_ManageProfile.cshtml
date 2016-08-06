@@ -1,0 +1,116 @@
+﻿@model OneCRS.MVC.Models.Sales.Project
+<legend style=" margin-left:20px;background-color:#1f497d; padding-left:30px; padding-top:2px; padding-right:50px; padding-bottom:2px; color:white; border-radius:15px; border:3px solid #eeece1; font-size:18px; "><b>Manage Profile</b></legend>
+<br />
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="GLCode">GL Code</label>
+            <input id="GLCode" name="GLCode" class="form-control form-white" />
+        </div>
+    </div>
+</div>
+<div class="row" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="">Hide</label>
+            <input id="projectDDDD" name="projectDDDD" class="form-control form-white" style="display:none" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color:red; font-size:18px">*</span> Project Code</label>
+            <input type="text" id="pcode" name="ProjectCode" value="@ViewBag.vProjectCode" class="form-control form-white" required disabled />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Project Prefix</label>
+            <input type="text" id="pprefix" name="ProjectPrefix" class="form-control form-white" style="text-transform:uppercase" required />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Project Name</label>
+            <input type="text" id="pname" name="ProjectName" class="form-control form-white" required />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px;visibility:hidden">*</span>Project Description</label>
+            <input id="pownerdesc" name="ProjectDesc" class="form-control form-white"  />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Customer</label>
+            <select id="powner" name="ProjectOwner" class="form-control form-white" data-style="white" data-search="true" required />
+        </div>
+    </div>
+    <div class="col-lg-6" style="display:none">
+        <div class="form-group">
+            <label for="">Hide</label>
+            <input id="projectHide" name="projectHide" class="form-control form-white" style="display:none" />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Contact Person</label>
+            <select id="ProjectCP" name="ProjectCP" class="form-control form-white" data-style="white" data-search="true" />
+        </div>
+    </div>
+</div>
+<div class="row" style="display:none">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="">Hide</label>
+            <input id="projectHide2" name="projectHide2" class="form-control form-white" style="display:none" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="">Reference Remark</label>
+            <input type="text" id="premarks" name="P_Remarks" class="form-control form-white"  />
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="form-group">
+            <label for="">Email (CC)</label>
+            <input type="text" id="pemailcc" name="P_EmailCC" class="form-control form-white"  />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="form-group" id="rdoSelect" style="margin-left:2px">
+            <label for="P_AccessIsUser">Accessible By:</label>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="P_AccessIsUser" value="true" id="paccess_puser" data-checkbox="icheckbox_square-blue">
+                    @*<input type="hidden" name="P_AccessIsUser" value="false" data-checkbox="icheckbox_square-blue">*@
+                    Public User
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="P_AccessIsUserSI" id="paccess_pusersi" data-checkbox="icheckbox_square-blue">
+                    Public User (System Integration)
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="P_AccessIsAP" id="paccess_ap" data-checkbox="icheckbox_square-blue">
+                    Authorized Personnel (AP)
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

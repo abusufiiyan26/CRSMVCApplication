@@ -1,0 +1,610 @@
+﻿@{
+    ViewBag.Title = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Menu.cshtml";
+}
+
+<style>
+    icon-cert {
+        background-image: url("../Images/icon/icon-cert.png");
+    }
+</style>
+
+@if (ViewBag.Reset != null)
+{
+    <script>
+        $(document).ready(function () {
+            var blogUrl = 'hidden';
+            $('#myReport').attr('hidden', blogUrl);
+            $('#SearchChart').hide();
+        });
+    </script>
+}
+<script type="text/javascript" language="JavaScript" src="../FusionCharts/FusionCharts.js"></script>
+<script type="text/javascript" language="JavaScript">
+    function myJS(myVar) {
+    }
+</script>
+
+<link rel="stylesheet" href="/assets/adminlte/bootstrap/css/bootstrap.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="/assets/adminlte/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="/assets/adminlte/dist/css/skins/_all-skins.min.css">
+
+<style type="text/css">
+    .small-box h3 {
+        font-size: 38px !important;
+        font-weight: bold !important;
+        margin: 0 0 10px 0 !important;
+        padding: 0 !important;
+        white-space: nowrap !important;
+    }
+</style>
+
+<section>
+    <div class="page-content">
+
+        @if (Session["RoleID"].ToString() == "4")
+        {
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/RPVerification" class="small-box-footer">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                @if (ViewBag.PendingRPVerification == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.PendingRPVerification</h3>
+                                }
+                                <p><b>Pending Verification</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/NewWorkOrder/ListOfPO" class="small-box-footer">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                @if (ViewBag.PendingWorkOrder == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.PendingWorkOrder</h3>
+                                }
+                                <p><b>Pending PO Work Order</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-people"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/NewWorkOrder/ListOfPO" class="small-box-footer">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                @if (ViewBag.CompleteWorkOrder == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CompleteWorkOrder</h3>
+                                }
+                                <p><b>Complete PO Order</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-android-checkbox"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/RPVerification" class="small-box-footer">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                @if (ViewBag.RPTotalApproved == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.RPTotalApproved</h3>
+                                }
+                                <p><b>Total Approved</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else if (Session["RoleID"].ToString() == "5")
+        {
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/ROApproval" class="small-box-footer">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                @if (ViewBag.PendingROApproval == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.PendingROApproval</h3>
+                                }
+                                <p><b>Pending User Request Approval</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/APApproval/GridVTable" class="small-box-footer">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                @if (ViewBag.PendingAPApproval == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.PendingAPApproval</h3>
+                                }
+                                <p><b>Pending AP Request Approval</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-stalker"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/Certificate/RevokeApproval" class="small-box-footer">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                @if (ViewBag.PendingRevokeApproval == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.PendingRevokeApproval</h3>
+                                }
+                                <p><b>Pending Revocation Approval</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-trash-a"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/ROApproval" class="small-box-footer">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                @if (ViewBag.totalApproved == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.totalApproved</h3>
+                                }
+                                <p><b>Total Approved</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-pie-graph"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else if (Session["RoleID"].ToString() == "7")
+        {
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/FinanceCustomer" class="small-box-footer">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                @if (ViewBag.CustomerCode == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CustomerCode</h3>
+                                }
+                                <p><b>Pending Customer Number</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/FinanceProject">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                @if (ViewBag.GLCode == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.GLCode</h3>
+                                }
+                                <p><b>Pending GL Code</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-clipboard"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/NewInvoice/ListOfPOCreditInvoice">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                @if (ViewBag.CreditPOInvoice == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CreditPOInvoice</h3>
+                                }
+                                <p><b>Pending PO Tax Invoice</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-email"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/NewInvoice/ListOfCreditInvoice">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                @if (ViewBag.CreditCPInvoice == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CreditCPInvoice</h3>
+                                }
+                                <p><b>Pending Contract Tax Invoice</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-social-usd"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else if (Session["RoleID"].ToString() == "15")
+        {
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/FinanceCustomer" class="small-box-footer">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                @if (ViewBag.CustomerCode == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CustomerCode</h3>
+                                }
+                                <p><b>Pending Customer Number</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-person-add"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/FinanceProject">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                @if (ViewBag.GLCode == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.GLCode</h3>
+                                }
+                                <p><b>Pending GL Code</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-clipboard"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/FinancePackage/ListOfPackage">
+                        <div class="small-box bg-yellow">
+                            <div class="inner">
+                                @if (ViewBag.ProfitCenter == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.ProfitCenter</h3>
+                                }
+                                <p><b>Pending Profit Center</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-arrow-graph-up-right"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <a href="/NewInvoice/ListOfCreditInvoice">
+                        <div class="small-box bg-red">
+                            <div class="inner">
+                                @if (ViewBag.CreditInvoice == 0)
+                                {
+                                    <h3>0</h3>
+                                }
+                                else
+                                {
+                                    <h3>@ViewBag.CreditInvoice</h3>
+                                }
+                                <p><b>Pending Credit Invoice</b></p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-social-usd"></i>
+                            </div>
+                            <span class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>150</h3>
+                            <p>New Orders</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <p>Bounce Rate</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>44</h3>
+                            <p>User Registrations</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div><!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>65</h3>
+                            <p>Unique Visitors</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div><!-- ./col -->
+            </div>
+        }
+        <div class="row">
+            <div class="col-lg-4 col-sm-6" style="margin-top:-15px;">
+                <div class="panel widget-member">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="~/assets/global/images/avatars/avatar1.png" alt="avatar 12" class="pull-left img-responsive">
+                        </div>
+                        <div class="col-xs-9">
+                            <h3 class="m-t-0 member-name"><strong>@ViewBag.Department</strong></h3>
+                            <p class="member-job"></p>
+                            <div class="row">
+                                <div class="col-xlg-6 col-lg-12 col-sm-6 align-right">
+                                    <p><img src="../Images/icon/icon-idcard.png" style="max-width:20px" />&nbsp;&nbsp;&nbsp;@Session["ICNo"]</p>
+                                    <p><img src="../Images/icon/icon-email.png" style="max-width:20px" />&nbsp;&nbsp;&nbsp;@Session["Email"]</p>
+                                    <p><img src="../Images/icon/icon-tel.png" style="max-width:20px" />&nbsp;&nbsp;&nbsp;@Session["TelNo"]</p>
+                                    <p style="color:blue;font-size:15px"><img src="../Images/icon/icon-cert.png" style="max-width:20px" />&nbsp;&nbsp;@ViewBag.CertValidity days remaining</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            @if (Session["RoleID"].ToString() == "1" || Session["RoleID"].ToString() == "6" || Session["RoleID"].ToString() == "7" || Session["RoleID"].ToString() == "8")
+                            {
+                                <button type="button" id="btnApproval" class="btn btn-primary">Approve Certificate</button>
+                            }&nbsp;
+                            <button type="button" id="btnProfile" class="btn btn-success">My Certificate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REGION FOR USER MANUAL-->
+            <div class="col-xlg-2 col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                <div class="panel-group panel-accordion" id="accordion2">
+                    <div class="panel" style="border: #ddd; border-radius:4px">
+                        <div class="panel-heading">
+                            <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne2">
+                                    Guidelines (User Manual)
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne2" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h4>
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo2">
+                                    FAQ
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGION FOR CHART ADMIN DASHBOARD-->
+        <div>
+            <div>
+                <div id="SearchChart">
+                    @if (Session["RoleID"].ToString() == "1" && Session["RoleID"].ToString() != "6")
+                    {
+                        using (Html.BeginForm("Admin", "Dashboard", FormMethod.Get))
+                        {
+                            <p align="center">
+                                Month: @Html.DropDownList("iMonth", ViewData["Months"] as List<SelectListItem>)
+                                Year: @Html.DropDownList("iYear", ViewData["Years"] as List<SelectListItem>)
+                                <input type="submit" value="Filter" />
+                            </p>
+                        }
+                    }
+                </div>
+                <div>
+                    @Html.Raw(ViewBag.FCLiteral1)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @Html.Raw(ViewBag.FCLiteral2)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+<script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+<script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script src="../assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+<script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
+<script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assets/global/plugins/jquery-cookies/jquery.cookies.min.js"></script> <!-- Jquery Cookies, for theme -->
+<script src="../assets/global/plugins/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+<script src="../assets/global/plugins/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
+<script src="../assets/global/plugins/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+<script src="../assets/global/plugins/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+<script src="../assets/global/plugins/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+<script src="../assets/global/plugins/retina/retina.min.js"></script> <!-- Retina Display -->
+<script src="../assets/global/plugins/select2/select2.min.js"></script> <!-- Select Inputs -->
+<script src="../assets/global/plugins/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
+<script src="../assets/global/plugins/backstretch/backstretch.min.js"></script> <!-- Background Image -->
+<script src="../assets/global/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+<script src="../assets/global/js/builder.js"></script> <!-- Theme Builder -->
+<script src="../assets/global/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
+<script src="../assets/global/js/application.js"></script> <!-- Main Application Script -->
+<script src="../assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+<script src="../assets/global/js/widgets/notes.js"></script> <!-- Notes Widget -->
+<script src="../assets/global/js/quickview.js"></script> <!-- Chat Script -->
+<script src="../assets/global/js/pages/search.js"></script> <!-- Search Script -->
+<!-- BEGIN PAGE SCRIPT -->
+@*<script src="../assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->*@
+<script src="../assets/global/plugins/bootstrap-editable/js/bootstrap-editable.min.js"></script> <!-- Inline Edition X-editable -->
+<script src="../assets/global/plugins/bootstrap-context-menu/bootstrap-contextmenu.min.js"></script> <!-- Context Menu -->
+<script src="../assets/global/plugins/multidatepicker/multidatespicker.min.js"></script> <!-- Multi dates Picker -->
+<script src="../assets/global/js/widgets/todo_list.js"></script>
+<script src="../assets/global/plugins/metrojs/metrojs.min.js"></script> <!-- Flipping Panel -->
+<script src="../assets/global/plugins/charts-chartjs/Chart.min.js"></script>
+<script src="../assets/global/plugins/charts-highstock/js/highstock.min.js"></script>
+<script src="../assets/global/plugins/charts-highstock/js/modules/exporting.min.js"></script>
+@*<script src="../assets/global/plugins/maps-amcharts/ammap/ammap.min.js"></script>*@ <!-- Vector Map -->
+@*<script src="../assets/global/plugins/maps-amcharts/ammap/maps/js/worldLow.min.js"></script>*@ <!-- Vector World Map  -->
+@*<script src="../assets/global/plugins/maps-amcharts/ammap/themes/black.min.js"></script>*@ <!-- Vector Map Black Theme -->
+<script src="../assets/global/plugins/skycons/skycons.min.js"></script> <!-- Animated Weather Icons -->
+<script src="../assets/global/plugins/simple-weather/jquery.simpleWeather.js"></script> <!-- Weather Plugin -->
+<script src="../assets/global/js/widgets/widget_weather.js"></script>
+@*<script src="../assets/global/js/pages/dashboard.js"></script>*@
+@*<script src="../assets/global/js/pages/charts_finance.js"></script>*@
+<!-- END PAGE SCRIPT -->
+@*<script src="../assets/admin/layout3/js/layout.js"></script>*@
+<script>
+    $('#btnProfile').click(function () {
+        window.location.href = '/AdminViewStatus/ListOfMyCertificate';
+    });
+    $('#btnApproval').click(function () {
+        window.location.href = '/AdminViewStatus/ListOfAdminCertificate';
+    });
+</script>
+@if (TempData["StatusConfirm"] != null)
+{
+    <script>
+        bootbox.alert('@TempData["StatusConfirm"]');
+    </script>
+}

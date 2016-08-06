@@ -1,0 +1,107 @@
+﻿@model OneCRS.MVC.Models.Sales.Project
+<legend style=" margin-left:20px;background-color:#1f497d; padding-left:30px; padding-top:2px; padding-right:50px; padding-bottom:2px; color:white; border-radius:15px; border:3px solid #eeece1; font-size:18px; "><b>Manage Payment</b></legend>
+<br />
+<div class="row" ng-controller="ProjectController">
+    <div class="col-lg-12">
+        <div class="form-group">
+            <label for=""><span style="color: red; font-size: 18px">*</span> Method of Payment</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="1" name="mofp" id="proTypeNormal" data-radio="iradio_square-blue">
+                    Retail
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="2" name="mofp" id="proTypeContract" data-radio="iradio_square-blue">
+                    Contract
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="3" name="mofp" id="proTypePO" data-radio="iradio_square-blue">
+                    Purchase Order (PO)
+                </label>
+            </div>
+            <div class="radio" id="HidePOFileUpload" style="display:none">
+                <label style="display: inline-block; text-align: left; width: 160px; margin-top: 10px" for="ProjectPONumber"><span style="color: red; font-size: 18px">*</span> PO Number</label>
+                <input type="text" style="width:30%" id="ProjectPONumber" name="ProjectPONumber" class="form-control form-white" />
+                <br />
+                <label style="display: inline-block; text-align: left; width: 160px; margin-top: 10px" for="FileUploadPO"><span style="color: red; font-size: 18px">*</span> Upload PO</label>
+                <input type="file" style="width:30%;display:inline" id="FileUploadPO" name="FileUploadPO" class="form-control form-white" />
+                <br />
+                <label style="display: inline-block; text-align: left; width: 160px; margin-top: 10px" for="P_QuantityPO"><span style="color: red; font-size: 18px">*</span> Enter Quantity</label>
+                <input type="number" style="width:30%" id="P_QuantityPO" name="P_QuantityPO" class="form-control form-white" />
+                <br /><br />
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="4" name="mofp" id="proTypePaid" data-radio="iradio_square-blue">
+                    Prepaid
+                </label>
+            </div>
+            <div class="radio" id="HidePaidQuantity" style="display:none">
+                <label style="display: inline-block; text-align: left; width: 160px" for="P_QuantityPaid"><span style="color: red; font-size: 18px">*</span> Enter Quantity</label>
+                <input type="number" style="width:30%" id="P_QuantityPaid" name="P_QuantityPaid" class="form-control form-white" />
+            </div>
+        </div>
+    </div>
+    @*<div class="col-lg-12">
+        <div class="form-group" style="width:50%">
+        </div>
+    </div>*@
+    @*<div class="col-lg-6" id="HidePublicPayment">
+        <div class="form-group">
+            <label for="">Public User</label>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_UserIsBypass" id="ptuserbypass" data-checkbox="icheckbox_square-blue">
+                    Bypass Payment
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_UserIsOnline" id="ptuseronline" data-checkbox="icheckbox_square-blue">
+                    Online Payment
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_UserIsManual" id="ptusermanual" data-checkbox="icheckbox_square-blue">
+                    Manual
+                </label>
+            </div>
+            <div id="ccaddress1" style="display:none">
+                <label for="">User Online Payment URL</label>
+                <input type="text" id="ptuserurl" name="PT_UserURL" class="form-control form-white" />
+            </div>
+        </div>
+    </div>*@
+    @*<div class="col-lg-6" id="HideAPPayment">
+        <div class="form-group">
+            <label for="">Authorized Personnel (AP)</label>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_APIsBypass" id="ptapbypass" data-checkbox="icheckbox_square-blue">
+                    Bypass Payment
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_APIsOnline" id="ptaponline" data-checkbox="icheckbox_square-blue">
+                    Online Payment
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="checkbox" name="PT_APIsManual" id="ptapmanual" data-checkbox="icheckbox_square-blue">
+                    Manual
+                </label>
+            </div>
+            <div id="ccaddress2" style="display:none">
+                <label for="">AP Online Payment URL</label>
+                <input type="text" id="ptapurl" name="PT_APURL" class="form-control form-white" />
+            </div>
+        </div>
+    </div>*@
+</div>

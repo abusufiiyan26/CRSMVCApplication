@@ -1,0 +1,173 @@
+﻿@model OneCRS.MVC.Models.RegisterModel
+@{
+    ViewBag.Title = "New Account Registration";
+}
+@section Head
+{
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_style_demo.css" />
+    <link rel="stylesheet" href="~/css/grid.css" />
+    <link rel="stylesheet" href="~/css/tmm_form_wizard_layout.css" />
+    <link rel="stylesheet" href="~/css/fontello.css" />
+    <link rel="stylesheet" href="~/css/super-awesome.css" />
+    <style>
+        label {
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        input[type="radio"]:checked {
+            border: 1px solid red;
+        }
+    </style>
+    <link rel="shortcut icon" href="~/favicon.png">
+
+    <!-- Header View -->
+    <link rel="stylesheet" href="~/assets/registration/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/animate.css">
+    <link rel="stylesheet" href="~/assets/registration/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/registration/css/slick.css">
+    <link rel="stylesheet" href="~/assets/registration/js/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/assets/registration/css/styles.css">
+
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet">
+    <link href="~/assets/global/plugins/rateit/rateit.css" rel="stylesheet">
+    @*<link href="~/assets/global/css/style.css" rel="stylesheet">*@
+    <link href="~/assets/global/css/ui.css" rel="stylesheet">
+    <link href="../Content/toastr.min.css" rel="stylesheet" />
+    <!-- End Header View -->
+}
+@section Scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @*<script src="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/bundles/jqueryval")"></script>*@
+    <script src="~/assets/registration/js/tmm_form_wizard_custom.js"></script>
+    <script src="~/Scripts/SimpleWizardForm.js"></script>
+    <script src="~/Scripts/jquery.steps.js"></script>
+    <script src="~/Scripts/jquery.steps.min.js"></script>
+
+    <!--Start Date Picker-->
+    <script src="~/assets/global/plugins/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+    <script src="~/assets/registration/js/modernizr.custom.32033.js"></script>
+    <script src="~/assets/global/js/application.js"></script> <!-- Main Application Script -->
+    <script src="~/assets/global/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+    <script src="~/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script> <!-- >Bootstrap Date Picker -->
+    <!--End Date Picker-->
+    <!--Landing Page javascript-->
+    <script src="~/assets/registration/js/scripts.js"></script>
+    <!--ViewScript -->
+    <script src="~/ViewsScript/Account/CreateNew.js"></script>
+    <script src="~/Content/loader/loadingoverlay.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+}
+@using (Html.BeginForm("NewAccount", "Register"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+                    <a class="navbar-brand" href="~/home">
+                        <img src="~/assets/registration/img/freeze/logo.png" alt="" class="logo">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br /><br /><br />
+    <div id="content">
+        <div class="form-container">
+            <div id="tmm-form-wizard" class="container substrate">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="form-login-heading">1CRS<span>REGISTRATION PAGE</span></h2>
+                    </div>
+                </div>
+                <div id="SecurityDetailsPnl" class="wizard-step">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-header">
+                                <div class="form-title form-icon title-icon-lock">
+                                    <b>Account</b> Information
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset>
+                                @Html.LabelFor(m => m.UserName)
+                                @Html.TextBoxFor(m => m.UserName, new { maxlength = 12, minlength = 6 })
+                                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                <span id="uname"></span>
+                                <br /><br />
+
+                                @Html.LabelFor(m => m.Password)
+                                @Html.PasswordFor(m => m.Password, new { maxlength = 12, minlength = 6 })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                                <br /><br />
+
+                                @Html.LabelFor(m => m.ConfirmPassword)
+                                @Html.PasswordFor(m => m.ConfirmPassword)
+                                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                            </fieldset>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-7">
+                            <fieldset class="input-block">
+                                @Html.LabelFor(m => m.SecurityImg)
+                                <br /><br />
+                                <div>
+                                    <input type="radio" name="SecurityImg" value="vg.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="vg.png"><img src="~/images/security/vg.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="bm.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="bm.png"><img src="~/images/security/bm.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="cat.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="cat.png"><img src="~/images/security/cat.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="earth.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="earth.png"><img src="~/images/security/earth.png" style="width:60px;height:60px" /></label>
+                                    <br />
+                                    <input type="radio" name="SecurityImg" value="flower.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="flower.png"><img src="~/images/security/flower.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="mark.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="mark.png"><img src="~/images/security/mark.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="dice.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="dice.png"><img src="~/images/security/dice.png" style="width:60px;height:60px" /></label>
+
+                                    <input type="radio" name="SecurityImg" value="rhombi.png" id="SecurityImg" />
+                                    <label style="width: 65px; height: 65px; " for="rhombi.png"><img src="~/images/security/rhombi.png" style="width:60px;height:60px" /></label>
+                                </div>
+                                @Html.ValidationMessageFor(m => m.SecurityImg, "", new { @class = "text-danger" })
+
+                                <br />
+                                @Html.LabelFor(m => m.SecurityPhrase)
+                                @Html.TextBoxFor(m => m.SecurityPhrase)
+                                @Html.ValidationMessageFor(m => m.SecurityPhrase, "", new { @class = "text-danger" })
+                            </fieldset>
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                    <div class="wizard-nav">
+                        <div class="next">
+                            <input class="button button-control" type="button" value="CONFIRM" style="width:100px;height:30px" id="btnCreateConfirm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

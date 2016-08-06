@@ -1,0 +1,28 @@
+﻿@model OneCRS.MVC.Models.Certificate.PublicRequestCert
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="c_project" style="margin-bottom: 8px">
+            <label><span style="color:red;font-size:18px">*</span> Project</label>
+            @if (Model.isAproject == true)
+            {
+                @Html.DropDownList("Project", (SelectList)ViewBag.ProjectID, new { @id = "Project" })
+            }
+            else
+            {
+                @Html.DropDownListFor(m => m.Project, @ViewBag.ProjectID as SelectList, "Select Project")
+            }
+        </div>
+        <div id="c_package" style="margin-bottom: 8px">
+            <label><span style="color:red;font-size:18px">*</span> Package</label>
+            @if (Model.isApackage == true)
+            {
+                @Html.DropDownList("Package", (SelectList)ViewBag.PackageID, new { @id = "Package" })
+            }
+            else
+            {
+                @Html.DropDownListFor(m => m.Package, @ViewBag.PackageID as SelectList, "Select Package")
+            }
+        </div>
+    </div>
+</div>

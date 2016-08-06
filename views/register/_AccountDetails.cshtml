@@ -1,0 +1,33 @@
+﻿@model OneCRS.MVC.Models.RegisterModel
+<div class="row">
+    <div class="col-xs-12">
+        <div class="form-header">
+            <div class="form-title form-icon title-icon-lock">
+                <b>Account</b> Information
+            </div>
+            <div class="steps">
+                Steps 2 - 4
+            </div>
+        </div><!--/ .form-header-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-sm-7">
+        <fieldset>
+            @Html.LabelFor(m => m.UserName)
+            @Html.TextBoxFor(m => m.UserName)
+            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            <span id="uname" />
+        </fieldset>
+        <fieldset>
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password, new { maxlength = 12, minlength = 6 })
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            <br /><br />
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+        </fieldset>
+        <br /><br /><br /><br />
+    </div>
+</div>
